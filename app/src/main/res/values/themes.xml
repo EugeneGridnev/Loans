@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ShiftFinal" parent="Base.Theme.ShiftFinal" />
+    <style name="Theme.ShiftFinal" parent="Base.Theme.ShiftFinal">
+        <item name="colorPrimary">#9D9E9F</item>
+    </style>
 </resources>
