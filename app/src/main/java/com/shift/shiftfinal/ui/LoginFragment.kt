@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoginBinding
 
@@ -43,6 +44,13 @@ class LoginFragment : Fragment() {
                 btnEnter.setTextColor(Color.parseColor("#73787F"))
                 btnRegister.setTextColor(Color.parseColor("#DEB800"))
             }
+        }
+
+        binding.btnIn.setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, OnBoardingFragment())
+                .commit()
         }
     }
 

@@ -7,5 +7,6 @@
 
     <style name="Theme.ShiftFinal" parent="Base.Theme.ShiftFinal">
         <item name="colorPrimary">#9D9E9F</item>
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 </resources>
