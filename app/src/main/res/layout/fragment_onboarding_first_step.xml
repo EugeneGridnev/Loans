@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -19,29 +20,29 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginVertical="2dp"
-        android:lineHeight="28sp"
         android:text="Оформить займ"
-        android:textFontWeight="600"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        app:lineHeight="28sp"
+        app:textFontWeight="600" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginVertical="2dp"
-        android:lineHeight="20sp"
         android:text="Выберите сумму и нажмите «продолжить». Затем укажите свои данные."
-        android:textFontWeight="400"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:lineHeight="20sp"
+        app:textFontWeight="400" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginVertical="2dp"
-        android:lineHeight="20sp"
         android:text="После нажатия «Оформить займ» заявка поступит в банк"
-        android:textFontWeight="400"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:lineHeight="20sp"
+        app:textFontWeight="400" />
 
 </LinearLayout>
