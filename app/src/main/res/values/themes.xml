@@ -8,5 +8,19 @@
     <style name="Theme.ShiftFinal" parent="Base.Theme.ShiftFinal">
         <item name="colorPrimary">#9D9E9F</item>
         <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">#DEB800</item>
+        <item name="colorOnSurfaceVariant">#DEB800</item>
+
     </style>
 </resources>
