@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentOnBoardingBinding
 import com.shift.shiftfinal.ui.LoginFragment
+import com.shift.shiftfinal.ui.MainFragment
 import com.shift.shiftfinal.ui.adapters.OnBoardingAdapter
 
 
@@ -36,6 +37,12 @@ class OnBoardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.topAppBar.setNavigationOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, MainFragment())
+                .commit()
+        }
         setUpOnboardingViewPager()
     }
 
@@ -53,7 +60,7 @@ class OnBoardingFragment : Fragment() {
 
         binding.onBoardingViewPager.apply {
             adapter = onBoardingStepsAdapter
-            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     changeStepState(context)
                     super.onPageSelected(position)
@@ -63,14 +70,14 @@ class OnBoardingFragment : Fragment() {
     }
 
     private fun changeStepState(context: Context) {
-        with(binding){
-            when(onBoardingViewPager.currentItem) {
+        with(binding) {
+            when (onBoardingViewPager.currentItem) {
                 0 -> {
                     with(binding) {
                         backButton.isVisible = false
                         nextButton.text = "Далее"
                         nextButton.setOnClickListener {
-                            if (onBoardingViewPager.currentItem < onBoardingViewPager.adapter!!.itemCount- 1){
+                            if (onBoardingViewPager.currentItem < onBoardingViewPager.adapter!!.itemCount - 1) {
                                 onBoardingViewPager.currentItem += 1
                             }
                         }
@@ -79,17 +86,18 @@ class OnBoardingFragment : Fragment() {
                         stepThree.background = context.getDrawable(R.color.bg_disable)
                     }
                 }
+
                 1 -> {
                     with(binding) {
                         backButton.isVisible = true
                         backButton.setOnClickListener {
-                            if (onBoardingViewPager.currentItem > 0){
+                            if (onBoardingViewPager.currentItem > 0) {
                                 onBoardingViewPager.currentItem -= 1
                             }
                         }
                         nextButton.text = "Далее"
                         nextButton.setOnClickListener {
-                            if (onBoardingViewPager.currentItem < onBoardingViewPager.adapter!!.itemCount- 1){
+                            if (onBoardingViewPager.currentItem < onBoardingViewPager.adapter!!.itemCount - 1) {
                                 onBoardingViewPager.currentItem += 1
                             }
                         }
@@ -99,19 +107,20 @@ class OnBoardingFragment : Fragment() {
                     }
 
                 }
+
                 2 -> {
                     with(binding) {
                         backButton.isVisible = true
                         nextButton.text = "Закрыть"
                         backButton.setOnClickListener {
-                            if (onBoardingViewPager.currentItem > 0){
+                            if (onBoardingViewPager.currentItem > 0) {
                                 onBoardingViewPager.currentItem -= 1
                             }
                         }
                         nextButton.setOnClickListener {
                             parentFragmentManager
                                 .beginTransaction()
-                                .replace(R.id.fragmentContainer, LoginFragment())
+                                .replace(R.id.fragmentContainer, MainFragment())
                                 .commit()
                         }
                         stepOne.background = context.getDrawable(R.color.bg_disable)
@@ -119,6 +128,7 @@ class OnBoardingFragment : Fragment() {
                         stepThree.background = context.getDrawable(R.color.icon_primary)
                     }
                 }
+
                 else -> {}
             }
         }

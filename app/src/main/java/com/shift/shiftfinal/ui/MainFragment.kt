@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui.fragments.onboarding
+package com.shift.shiftfinal.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentMainBinding
+import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
 
 class MainFragment : Fragment() {
@@ -25,6 +26,13 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState == null) {
+            childFragmentManager
+                .beginTransaction()
+                .add(R.id.mainFragmentContainer, HomeFragment())
+                .commit()
+        }
 
         with(binding) {
             topAppBar.setOnMenuItemClickListener { menuItem ->
