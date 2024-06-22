@@ -41,6 +41,14 @@ class HomeFragment : Fragment() {
             }
         }
 
+        binding.btnLoanApplication.setOnClickListener {
+            parentFragmentManager
+                .beginTransaction()
+                .addToBackStack(null)
+                .add(R.id.mainFragmentContainer, LoanApplicationFragment())
+                .commit()
+        }
+
     }
 
     override fun onDestroyView() {
