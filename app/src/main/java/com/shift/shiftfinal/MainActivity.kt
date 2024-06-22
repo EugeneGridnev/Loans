@@ -1,11 +1,8 @@
 package com.shift.shiftfinal
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.shift.shiftfinal.ui.LoginFragment
+import com.shift.shiftfinal.ui.SplashFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            val fragment = LoginFragment()
+            val fragment = SplashFragment()
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragmentContainer, fragment)
