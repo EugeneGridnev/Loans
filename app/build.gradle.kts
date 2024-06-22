@@ -58,4 +58,6 @@ dependencies {
     kapt("com.google.dagger:dagger-compiler:2.51.1")
 
     implementation(libs.androidx.swiperefreshlayout)
+
+    implementation("com.github.terrakok:cicerone:7.1")
 }
