@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/loanNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="1dp"
+        android:textSize="16sp"
+        android:textFontWeight="400"
+        android:lineHeight="20sp"
+        android:textColor="#151E2A"
+        app:layout_constraintEnd_toStartOf="@+id/loanValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/loanStatus"
+        tools:text="№ 176899134565" />
+
+    <TextView
+        android:id="@+id/loanValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="1dp"
+        android:textSize="16sp"
+        android:textFontWeight="400"
+        android:lineHeight="20sp"
+        android:textColor="#151E2A"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/loanNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/loanDate"
+        tools:text="10 000 ₽" />
+
+    <TextView
+        android:id="@+id/loanStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
+        android:lineHeight="16sp"
+        android:textColor="#73787F"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loanDate"
+        app:layout_constraintStart_toStartOf="@+id/loanNumber"
+        app:layout_constraintTop_toBottomOf="@+id/loanNumber"
+        tools:text="На рассмотрении" />
+
+    <TextView
+        android:id="@+id/loanDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:lineHeight="16sp"
+        android:textColor="#73787F"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loanValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/loanStatus"
+        tools:text="25 сентября, вс" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
