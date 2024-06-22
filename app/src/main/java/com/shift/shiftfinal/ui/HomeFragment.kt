@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
 import com.shift.shiftfinal.databinding.FragmentOnboardingFirstStepBinding
+import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -25,6 +26,20 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.info -> {
+                    parentFragment?.parentFragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.fragmentContainer, OnBoardingFragment())
+                        ?.commit()
+                    true
+                }
+
+                else -> false
+            }
+        }
 
     }
 

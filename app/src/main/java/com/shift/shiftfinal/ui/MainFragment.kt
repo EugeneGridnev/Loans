@@ -35,19 +35,6 @@ class MainFragment : Fragment() {
         }
 
         with(binding) {
-            topAppBar.setOnMenuItemClickListener { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.info -> {
-                        parentFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.fragmentContainer, OnBoardingFragment())
-                            .commit()
-                        true
-                    }
-
-                    else -> false
-                }
-            }
 
             bottomNavigation.setOnItemSelectedListener { item ->
                 when (item.itemId) {
