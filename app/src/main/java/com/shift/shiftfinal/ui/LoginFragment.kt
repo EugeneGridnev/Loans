@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
         binding.btnEnter.setOnClickListener {
             with(binding) {
                 repeatPassword.isVisible = false
-                btnIn.text = "Войти"
+                btnIn.text = getString(R.string.login_button_text)
                 btnEnter.setTextColor(Color.parseColor("#DEB800"))
                 btnRegister.setTextColor(Color.parseColor("#73787F"))
             }
@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
             with(binding) {
                 repeatPassword.isVisible = true
-                btnIn.text = "Зарегистрироваться"
+                btnIn.text = getString(R.string.register_button_text)
                 btnEnter.setTextColor(Color.parseColor("#73787F"))
                 btnRegister.setTextColor(Color.parseColor("#DEB800"))
             }

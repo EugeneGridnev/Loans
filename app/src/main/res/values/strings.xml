@@ -8,4 +8,11 @@
     <string name="special_offer_button_text">Ближайшее отделение банка</string>
     <string name="special_offer_text">Погасите займ досрочно и мы увеличим лимит для следующего займа</string>
     <string name="special_offer_title_text">Специальное предложение</string>
+    <string name="login_hint">Логин</string>
+    <string name="password_hint">Пароль</string>
+    <string name="repeat_password_hint">Повторите пароль</string>
+    <string name="register_button_text">Зарегестрироваться</string>
+    <string name="login_button_text">Войти</string>
+    <string name="enter_tab_button_text">Вход</string>
+    <string name="registration_tab_text">Регистрация</string>
 </resources>
