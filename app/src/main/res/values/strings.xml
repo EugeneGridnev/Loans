@@ -15,4 +15,14 @@
     <string name="login_button_text">Войти</string>
     <string name="enter_tab_button_text">Вход</string>
     <string name="registration_tab_text">Регистрация</string>
+    <string name="loan_details_hint_text">Когда займ примет статус «Одобрен», Вам нужно будет подойти с паспортом в отделение банка для подписания договора и получить деньги</string>
+    <string name="loan_status_title">Статус</string>
+    <string name="loan_amount">Сумма</string>
+    <string name="loan_percent_title">Процент</string>
+    <string name="loan_period_title">Период (дней)</string>
+    <string name="loan_date_title">Дата оформления</string>
+    <string name="loan_number_title">Номер займа</string>
+    <string name="loan_telephone_title">Номер телефона</string>
+    <string name="loan_second_name_title">Фамилия</string>
+    <string name="loan_name_title">Имя</string>
 </resources>
