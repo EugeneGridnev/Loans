@@ -22,8 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Ваши данные"
-        android:textColor="#151E2A"
+        android:text="@string/loan_application_title_text"
+        android:textColor="@color/font_primary"
         android:textFontWeight="400"
         android:textSize="16sp" />
 
@@ -33,16 +33,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="12dp"
-        android:hint="Имя"
-        android:textColorHint="#A1A5AA"
-        app:boxBackgroundColor="#F1F1F2"
+        android:hint="@string/loan_appliation_name_hint"
+        android:textColorHint="@color/font_disable"
+        app:boxBackgroundColor="@color/bg_secondary"
         app:boxStrokeColor="@drawable/input_border_color"
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#151E2A">
+            android:textColor="@color/font_primary">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -53,16 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="12dp"
-        android:hint="Фамилия"
-        android:textColorHint="#A1A5AA"
-        app:boxBackgroundColor="#F1F1F2"
+        android:hint="@string/loan_application_second_name_hint"
+        android:textColorHint="@color/font_disable"
+        app:boxBackgroundColor="@color/bg_secondary"
         app:boxStrokeColor="@drawable/input_border_color"
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#151E2A">
+            android:textColor="@color/font_primary">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,16 +73,16 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="12dp"
-        android:hint="Телефон"
-        android:textColorHint="#A1A5AA"
-        app:boxBackgroundColor="#F1F1F2"
+        android:hint="@string/loan_application_telephone_hint"
+        android:textColorHint="@color/font_disable"
+        app:boxBackgroundColor="@color/bg_secondary"
         app:boxStrokeColor="@drawable/input_border_color"
         app:boxStrokeWidthFocused="1dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#151E2A">
+            android:textColor="@color/font_primary">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -92,11 +92,11 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="16dp"
         android:layout_weight="0.6"
-        android:textColor="#878787"
+        android:textColor="@color/font_secondary"
         android:textSize="12sp"
         android:textFontWeight="400"
         android:lineHeight="16sp"
-        android:text="После оформления заявки на займ, банк проведет анализ вашей кредитной истории" />
+        android:text="@string/loan_application_hint" />
 
     <Button
         android:id="@+id/btnApplyLoan"
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:backgroundTint="#FED200"
-        android:text="Оформить займ"
+        android:text="@string/loan_application_button_text"
         android:textColor="#151E2A"
         app:cornerRadius="8dp" />
 </LinearLayout>

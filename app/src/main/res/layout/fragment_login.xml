@@ -51,7 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textColor="#DEB800"
+                android:textColor="@color/permanent_primary_dark"
                 android:paddingHorizontal="17dp"
                 android:paddingVertical="10dp"
                 android:text="@string/registration_tab_text" />
@@ -65,14 +65,14 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:hint="@string/login_hint"
-            android:textColorHint="#73787F"
+            android:textColorHint="@color/font_secondary"
             app:boxStrokeWidthFocused="1dp"
-            app:boxStrokeColor="#959698">
+            app:boxStrokeColor="@color/border_primary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#151E2A">
+                android:textColor="@color/font_primary">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -84,16 +84,16 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:hint="@string/password_hint"
-            android:textColorHint="#73787F"
+            android:textColorHint="@color/font_secondary"
             app:endIconDrawable="@drawable/show_password_drawable"
             app:endIconMode="password_toggle"
             app:boxStrokeWidthFocused="1dp"
-            app:boxStrokeColor="#959698">
+            app:boxStrokeColor="@color/border_primary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#151E2A">
+                android:textColor="@color/font_primary">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,16 +105,16 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="12dp"
             android:hint="@string/repeat_password_hint"
-            android:textColorHint="#73787F"
+            android:textColorHint="@color/font_secondary"
             app:endIconDrawable="@drawable/show_password_drawable"
             app:endIconMode="password_toggle"
             app:boxStrokeWidthFocused="1dp"
-            app:boxStrokeColor="#959698">
+            app:boxStrokeColor="@color/border_primary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#151E2A">
+                android:textColor="@color/font_primary">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -124,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:backgroundTint="#FED200"
+            android:backgroundTint="@color/permanent_primary"
             android:textColor="#151E2A"
             android:text="@string/register_button_text"
             app:cornerRadius="8dp" />

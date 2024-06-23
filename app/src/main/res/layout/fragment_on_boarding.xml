@@ -34,7 +34,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E3E4E5"/>
+        android:background="@color/bg_secondary"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -46,9 +46,9 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Назад"
-            android:textColor="#151E2A"
+            android:layout_gravity="start"
+            android:text="@string/onboarding_back_button_text"
+            android:textColor="@color/font_primary"
             android:textSize="14sp"
             android:textFontWeight="500"
             android:lineHeight="18sp"
@@ -68,7 +68,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
-                android:background="#E5E5E5"
+                android:background="@color/bg_disable"
                 android:layout_marginHorizontal="4dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp">
@@ -82,7 +82,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
-                android:background="#E5E5E5"
+                android:background="@color/bg_disable"
                 android:layout_marginHorizontal="4dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp">
@@ -96,7 +96,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="8dp"
                 android:layout_height="8dp"
-                android:background="#E5E5E5"
+                android:background="@color/bg_disable"
                 android:layout_marginHorizontal="4dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp">
@@ -113,9 +113,9 @@
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Далее"
-            android:textColor="#151E2A"
+            android:layout_gravity="end"
+            android:text="@string/onboarding_next_button_text"
+            android:textColor="@color/font_primary"
             android:textSize="14sp"
             android:textFontWeight="500"
             android:lineHeight="18sp"

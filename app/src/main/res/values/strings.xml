@@ -25,4 +25,26 @@
     <string name="loan_telephone_title">Номер телефона</string>
     <string name="loan_second_name_title">Фамилия</string>
     <string name="loan_name_title">Имя</string>
+    <string name="banks_stub_button_text">Вернуться на главную</string>
+    <string name="accept_button_text">Посмотреть адреса банков</string>
+    <string name="accept_hint_text">Для получения придите в банк c паспортом до 20 мая</string>
+    <string name="loan_application_title_text">Ваши данные</string>
+    <string name="loan_appliation_name_hint">Имя</string>
+    <string name="loan_application_second_name_hint">Фамилия</string>
+    <string name="loan_application_button_text">Оформить займ</string>
+    <string name="loan_application_hint">После оформления заявки на займ, банк проведет анализ вашей кредитной истории</string>
+    <string name="loan_application_telephone_hint">Телефон</string>
+    <string name="title_decline">Заявка не одобрена</string>
+    <string name="hint_decline">Сейчас мы не можем одобрить вашу заявку</string>
+    <string name="to_main_button_text">Вернуться на главную</string>
+    <string name="loan_list_load_error">Ошибка загрузки списка займов, попробуйте обновить список!</string>
+    <string name="onboarding_next_button_text">Далее</string>
+    <string name="onboarding_back_button_text">Назад</string>
+    <string name="onboarding_title">Оформить займ</string>
+    <string name="onboarding_hint">Выберите сумму и нажмите «продолжить». Затем укажите свои данные.</string>
+    <string name="onboarding_hint_2">После нажатия «Оформить займ» заявка поступит в банк</string>
+    <string name="onboarding_title_second">Получить займ</string>
+    <string name="onboarding_second_hint">Отслеживайте изменение статуса заявки.</string>
+    <string name="onboarding_third_title">Оформленные займы</string>
+    <string name="onboarding_third_hint">На главном экране приложения отображается список оформленных займов.</string>
 </resources>

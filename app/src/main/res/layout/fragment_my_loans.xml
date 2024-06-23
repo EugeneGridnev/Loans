@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.8"
         android:layout_gravity="center"
-        android:indeterminateTint="#FED200"
+        android:indeterminateTint="@color/permanent_primary"
         android:visibility="gone"/>
 
     <TextView
@@ -48,7 +48,7 @@
         android:textColor="#151E2A"
         android:textFontWeight="500"
         android:textSize="20sp"
-        android:text="Ошибка загрузки списка займов, попробуйте обновить список!"
+        android:text="@string/loan_list_load_error"
         android:visibility="gone"/>
 
 </LinearLayout>

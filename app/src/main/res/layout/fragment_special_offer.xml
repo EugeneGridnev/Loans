@@ -41,7 +41,7 @@
         android:layout_marginHorizontal="38dp"
         android:layout_marginTop="28dp"
         android:text="@string/special_offer_title_text"
-        android:textColor="#151E2A"
+        android:textColor="@color/font_primary"
         android:textFontWeight="500"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
         android:lineHeight="20sp"
         android:maxWidth="328dp"
         android:text="@string/special_offer_text"
-        android:textColor="#151E2A"
+        android:textColor="@color/font_primary"
         android:textFontWeight="400"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/btnSpecialOffer"
@@ -72,12 +72,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="#FED200"
+        android:backgroundTint="@color/permanent_primary"
         android:text="@string/special_offer_button_text"
-        android:textColor="#151E2A"
+        android:textColor="@color/font_primary"
         android:textFontWeight="500"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,5 +17,5 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="26dp"
-        android:indeterminateTint="#FED200" />
+        android:indeterminateTint="@color/permanent_primary" />
 </LinearLayout>
