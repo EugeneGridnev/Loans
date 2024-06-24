@@ -47,4 +47,12 @@
     <string name="onboarding_second_hint">Отслеживайте изменение статуса заявки.</string>
     <string name="onboarding_third_title">Оформленные займы</string>
     <string name="onboarding_third_hint">На главном экране приложения отображается список оформленных займов.</string>
+    <string name="loan_amount_title_home">Сумма займа</string>
+    <string name="home_condition_text">Условия</string>
+    <string name="my_loans_title_home">Мои займы</string>
+    <string name="no_loans_hint_home">Здесь будут отображаться Ваши активные займы</string>
+    <string name="take_loan_button_text_home">Продолжить</string>
+    <string name="loan_banner_title">Получите займ в 2 клика</string>
+    <string name="loan_banner_text">Деньги наличными на любые цели</string>
+    <string name="user_name_taken_registeration_error">Имя пользовател занято</string>
 </resources>
