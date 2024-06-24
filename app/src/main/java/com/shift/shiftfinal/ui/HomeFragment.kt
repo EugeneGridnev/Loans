@@ -6,11 +6,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.shift.shiftfinal.R
+import com.shift.shiftfinal.data.model.LoanCondition
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
 import com.shift.shiftfinal.databinding.FragmentOnboardingFirstStepBinding
+import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
+private const val MAX_AMOUNT = "MAX_AMOUNT"
+private const val PERCENT = "PERCENT"
+private const val PERIOD = "PERIOD"
+private var Bundle.loanCondition
+    get() = LoanConditionEntity(
+        maxAmount = getInt(MAX_AMOUNT),
+        percent = getInt(PERCENT),
+        period = getInt(PERIOD),
+    )
+    set(value) {
+        putInt(MAX_AMOUNT, value.maxAmount)
+        putInt(PERCENT, value.percent)
+        putInt(PERIOD, value.period)
+    }
+
 class HomeFragment : Fragment() {
+
+
+    companion object {
+
+        fun newInstance(loanCondition: LoanConditionEntity): Fragment = SplashFragment().apply {
+            arguments = Bundle().apply { this.loanCondition = loanCondition }
+        }
+    }
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
