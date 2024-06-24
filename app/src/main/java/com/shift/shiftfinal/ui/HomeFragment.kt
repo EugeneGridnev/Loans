@@ -18,12 +18,12 @@ private const val PERIOD = "PERIOD"
 private var Bundle.loanCondition
     get() = LoanConditionEntity(
         maxAmount = getInt(MAX_AMOUNT),
-        percent = getInt(PERCENT),
+        percent = getDouble(PERCENT),
         period = getInt(PERIOD),
     )
     set(value) {
         putInt(MAX_AMOUNT, value.maxAmount)
-        putInt(PERCENT, value.percent)
+        putDouble(PERCENT, value.percent)
         putInt(PERIOD, value.period)
     }
 
@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(loanCondition: LoanConditionEntity): Fragment = SplashFragment().apply {
+        fun newInstance(loanCondition: LoanConditionEntity): Fragment = HomeFragment().apply {
             arguments = Bundle().apply { this.loanCondition = loanCondition }
         }
     }

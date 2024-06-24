@@ -7,8 +7,33 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.shift.shiftfinal.databinding.FragmentLoanApplicationBinding
+import com.shift.shiftfinal.domain.entity.LoanConditionEntity
+
+private const val MAX_AMOUNT = "MAX_AMOUNT"
+private const val PERCENT = "PERCENT"
+private const val PERIOD = "PERIOD"
+private var Bundle.loanCondition
+    get() = LoanConditionEntity(
+        maxAmount = getInt(MAX_AMOUNT),
+        percent = getDouble(PERCENT),
+        period = getInt(PERIOD),
+    )
+    set(value) {
+        putInt(MAX_AMOUNT, value.maxAmount)
+        putDouble(PERCENT, value.percent)
+        putInt(PERIOD, value.period)
+    }
 
 class LoanApplicationFragment : Fragment() {
+
+    companion object {
+
+        fun newInstance(loanCondition: LoanConditionEntity): Fragment =
+            LoanApplicationFragment().apply {
+                arguments = Bundle().apply { this.loanCondition = loanCondition }
+            }
+    }
+
     private var _binding: FragmentLoanApplicationBinding? = null
     private val binding get() = _binding!!
 
