@@ -56,4 +56,9 @@
     <string name="loan_banner_text">Деньги наличными на любые цели</string>
     <string name="user_name_taken_registeration_error">Имя пользовател занято</string>
     <string name="look_all_loans_button_text">Посмотреть все</string>
+    <string name="my_loans_text">Мои займы</string>
+    <string name="offers_text">Предложения для вас</string>
+    <string name="banks_text">Отделения банка</string>
+    <string name="help_menu_text">Помощь</string>
+    <string name="exit_text">Выйти</string>
 </resources>
