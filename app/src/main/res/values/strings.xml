@@ -55,4 +55,5 @@
     <string name="loan_banner_title">Получите займ в 2 клика</string>
     <string name="loan_banner_text">Деньги наличными на любые цели</string>
     <string name="user_name_taken_registeration_error">Имя пользовател занято</string>
+    <string name="look_all_loans_button_text">Посмотреть все</string>
 </resources>

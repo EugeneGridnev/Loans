@@ -30,6 +30,63 @@
             android:layout_margin="16dp"
             android:background="@drawable/banner_background">
 
+            <TextView
+                android:id="@+id/bannerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="160dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="27dp"
+                android:text="@string/loan_banner_title"
+                android:textColor="@color/font_primary"
+                android:textFontWeight="500"
+                android:textSize="20sp"
+                android:lineHeight="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bannerText"
+                />
+
+            <TextView
+                android:id="@+id/bannerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="27dp"
+                android:lineHeight="18dp"
+                android:maxWidth="145dp"
+                android:text="@string/loan_banner_text"
+                android:textColor="@color/font_primary"
+                android:textFontWeight="500"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/bannerTitle"
+                app:layout_constraintTop_toBottomOf="@+id/bannerTitle" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bannerTitle"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="-54dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="76dp"/>
+
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -37,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:lineHeight="26sp"
-            android:text="Сумма займа"
+            android:text="@string/loan_amount_title_home"
             android:textFontWeight="500"
             android:textSize="20sp" />
 
@@ -49,12 +106,14 @@
             android:background="@drawable/loan_background">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/loanAmountEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:autofillHints="0"
                 android:background="@null"
+                android:inputType="number"
                 android:lineHeight="26sp"
                 android:textFontWeight="500"
                 android:textSize="20sp"
@@ -68,9 +127,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:src="@drawable/loan_edit_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/editText"
-                app:layout_constraintStart_toEndOf="@+id/editText"
-                app:layout_constraintTop_toTopOf="@+id/editText" />
+                app:layout_constraintBottom_toBottomOf="@+id/loanAmountEdit"
+                app:layout_constraintStart_toEndOf="@+id/loanAmountEdit"
+                app:layout_constraintTop_toTopOf="@+id/loanAmountEdit" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,9 +140,9 @@
                 android:textFontWeight="400"
                 android:textSize="12sp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintBottom_toBottomOf="@+id/loanAmountEdit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText"
+                app:layout_constraintTop_toTopOf="@+id/loanAmountEdit"
                 tools:text="Максимум 1000 ₽" />
 
 
@@ -98,26 +157,28 @@
                 android:valueTo="100.0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/loanAmountEdit" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/loanMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineHeight="26sp"
                 android:textFontWeight="400"
                 android:textSize="12sp"
+                android:textColor="@color/font_secondary"
                 app:layout_constraintStart_toStartOf="@+id/loanSlider"
                 app:layout_constraintTop_toBottomOf="@+id/loanSlider"
                 tools:text="0 ₽" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/loanMax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineHeight="26sp"
                 android:textFontWeight="400"
                 android:textSize="12sp"
+                android:textColor="@color/font_secondary"
                 app:layout_constraintEnd_toEndOf="@+id/loanSlider"
                 app:layout_constraintTop_toBottomOf="@+id/loanSlider"
                 tools:text="999999 ₽" />
@@ -127,33 +188,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="16dp"
-                android:background="#F1F1F2"
-                app:layout_constraintEnd_toEndOf="@+id/textView2"
-                app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                android:background="@color/bg_secondary"
+                app:layout_constraintEnd_toEndOf="@+id/loanMax"
+                app:layout_constraintStart_toStartOf="@+id/loanMin"
+                app:layout_constraintTop_toBottomOf="@+id/loanMin" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/loanConditionsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:lineHeight="16sp"
-                android:text="Условия"
+                android:text="@string/home_condition_text"
                 android:textFontWeight="400"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView"
+                android:textColor="@color/font_secondary"
+                app:layout_constraintStart_toStartOf="@+id/loanMin"
                 app:layout_constraintTop_toBottomOf="@+id/divider" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/loanConditions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineHeight="20sp"
-                android:textColor="#151E2A"
+                android:textColor="@color/font_primary"
                 android:textFontWeight="400"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="@+id/loanConditionsTitle"
+                app:layout_constraintTop_toBottomOf="@+id/loanConditionsTitle"
                 tools:text="Под 30% на 12 дней" />
 
             <Button
@@ -162,13 +224,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/permanent_primary"
-                android:text="Продолжить"
-                android:textColor="#151E2A"
+                android:text="@string/take_loan_button_text_home"
+                android:textColor="@color/font_primary"
                 app:cornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/loanConditions" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -178,7 +240,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:lineHeight="26sp"
-            android:text="Мои займы"
+            android:text="@string/my_loans_title_home"
             android:textFontWeight="500"
             android:textSize="20sp" />
 
@@ -188,11 +250,40 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:lineHeight="16sp"
-            android:text="Здесь будут отображаться Ваши активные займы"
+            android:text="@string/no_loans_hint_home"
             android:textColor="#73787F"
             android:textFontWeight="400"
             android:textSize="12sp" />
 
+        <LinearLayout
+            android:id="@+id/loanList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/loan_background"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeLoanRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"/>
+
+            <Button
+                android:id="@+id/allLoansButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/bg_secondary"
+                android:text="@string/look_all_loans_button_text"
+                android:textColor="@color/font_primary"
+                app:cornerRadius="8dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
