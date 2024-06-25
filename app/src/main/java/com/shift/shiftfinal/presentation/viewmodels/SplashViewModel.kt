@@ -9,14 +9,14 @@ import com.shift.shiftfinal.domain.exceptions.AuthException
 import com.shift.shiftfinal.domain.usecase.CheckUserLoginUseCase
 import com.shift.shiftfinal.domain.usecase.GetLoanConditionUseCase
 import com.shift.shiftfinal.domain.usecase.LogoutUserUseCase
-import com.shift.shiftfinal.presentation.navigation.SplashRouter
+import com.shift.shiftfinal.navigation.ActivityRouter
 import com.shift.shiftfinal.presentation.state.SplashScreenState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(
-    private val splashRouter: SplashRouter,
+    private val activityRouter: ActivityRouter,
     private val loanConditionUseCase: GetLoanConditionUseCase,
     private val checkUserLoginUseCase: CheckUserLoginUseCase,
     private val logoutUserUseCase: LogoutUserUseCase
@@ -30,21 +30,21 @@ class SplashViewModel @Inject constructor(
             _state.value = SplashScreenState.Loading
             if (!checkUserLoginUseCase()) {
                 delay(1000)
-                splashRouter.openLoginScreen()
+                activityRouter.openLoginScreen()
                 return@launch
             }
             val loanConditions = try {
                 loanConditionUseCase()
             } catch (e: AuthException) {
                 logoutUserUseCase()
-                splashRouter.openLoginScreen()
+                activityRouter.openLoginScreen()
                 return@launch
             }
             catch (_: ApiException) {
                 _state.value = SplashScreenState.Error("Сервис временно не работает!")
                 return@launch
             }
-            splashRouter.openHomeScreen(loanConditions)
+            activityRouter.openMainScreen(loanConditions)
         }
     }
 }

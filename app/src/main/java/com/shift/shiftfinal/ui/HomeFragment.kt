@@ -1,16 +1,23 @@
 package com.shift.shiftfinal.ui
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.shift.shiftfinal.App
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.data.model.LoanCondition
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
 import com.shift.shiftfinal.databinding.FragmentOnboardingFirstStepBinding
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
+import com.shift.shiftfinal.presentation.viewmodels.HomeViewModel
 import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
+import javax.inject.Inject
 
 private const val MAX_AMOUNT = "MAX_AMOUNT"
 private const val PERCENT = "PERCENT"
@@ -29,7 +36,6 @@ private var Bundle.loanCondition
 
 class HomeFragment : Fragment() {
 
-
     companion object {
 
         fun newInstance(loanCondition: LoanConditionEntity): Fragment = HomeFragment().apply {
@@ -37,8 +43,23 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @Inject
+    lateinit var homeViewModelFactory: HomeViewModel.Factory
+    private val viewModel: HomeViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return homeViewModelFactory.create(arguments!!.loanCondition) as T
+            }
+        }
+    }
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as App).appComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,10 +77,7 @@ class HomeFragment : Fragment() {
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.info -> {
-                    parentFragment?.parentFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.fragmentContainer, OnBoardingFragment())
-                        ?.commit()
+                    viewModel.openOnboarding(requireArguments().loanCondition)
                     true
                 }
 
@@ -68,11 +86,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnLoanApplication.setOnClickListener {
-            parentFragmentManager
-                .beginTransaction()
-                .addToBackStack(null)
-                .add(R.id.mainFragmentContainer, LoanApplicationFragment())
-                .commit()
+            viewModel.openLoanApplication(requireArguments().loanCondition)
         }
 
     }

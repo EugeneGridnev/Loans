@@ -12,6 +12,7 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.time.OffsetTime
 import javax.inject.Singleton
 
@@ -22,6 +23,7 @@ object DataModule {
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://shift-loan-app.exodar.heartlessguy.pro/")
+        .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(provideGson()))
         .build()
 

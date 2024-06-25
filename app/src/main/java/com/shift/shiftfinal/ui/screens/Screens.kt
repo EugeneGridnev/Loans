@@ -19,17 +19,20 @@ import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
 fun getSplashScreen() = FragmentScreen { SplashFragment() }
 
-fun getOnBoardingScreen() = FragmentScreen { OnBoardingFragment() }
+fun getOnBoardingScreen(loanCondition: LoanConditionEntity) =
+    FragmentScreen { OnBoardingFragment.newInstance(loanCondition) }
 
 fun getLoginScreen() = FragmentScreen { LoginFragment() }
 
-fun getMainScreen() = FragmentScreen { MainFragment() }
+fun getMainScreen(loanCondition: LoanConditionEntity) =
+    FragmentScreen { MainFragment.newInstance(loanCondition) }
 
 fun getHomeScreen(loanCondition: LoanConditionEntity) =
     FragmentScreen { HomeFragment.newInstance(loanCondition) }
 
-//todo передача параметров
-fun getLoanApplicationScreen() = FragmentScreen { LoanApplicationFragment() }
+
+fun getLoanApplicationScreen(loanCondition: LoanConditionEntity) =
+    FragmentScreen { LoanApplicationFragment.newInstance(loanCondition) }
 
 fun getLoanAcceptedScreen() = FragmentScreen { LoanAcceptedFragment() }
 

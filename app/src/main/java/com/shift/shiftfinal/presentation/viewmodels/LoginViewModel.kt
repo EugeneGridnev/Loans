@@ -13,15 +13,15 @@ import com.shift.shiftfinal.domain.usecase.GetLoanConditionUseCase
 import com.shift.shiftfinal.domain.usecase.LoginUserUseCase
 import com.shift.shiftfinal.domain.usecase.LogoutUserUseCase
 import com.shift.shiftfinal.domain.usecase.RegisterUserUseCase
-import com.shift.shiftfinal.presentation.navigation.LoginRouter
+import com.shift.shiftfinal.navigation.ActivityRouter
+import com.shift.shiftfinal.navigation.MainFragmentRouter
 import com.shift.shiftfinal.presentation.state.Field
 import com.shift.shiftfinal.presentation.state.LoginScreenState
-import com.shift.shiftfinal.presentation.state.SplashScreenState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
-    private val loginRouter: LoginRouter,
+    private val activityRouter: ActivityRouter,
     private val loanConditionUseCase: GetLoanConditionUseCase,
     private val logoutUserUseCase: LogoutUserUseCase,
     private val registerUserUseCase: RegisterUserUseCase,
@@ -79,7 +79,7 @@ class LoginViewModel @Inject constructor(
 
                 is LoginScreenState.RegistrationContent -> {
                     val errorRes = when {
-                        it.password.value == value -> R.string.app_name
+                        it.password.value != value -> R.string.app_name
                         else -> null
                     }
                     _state.value = it.copy(
@@ -99,7 +99,7 @@ class LoginViewModel @Inject constructor(
             when (it) {
                 is LoginScreenState.RegistrationContent -> {
                     val errorRes = when {
-                        it.password.value == value -> R.string.app_name
+                        it.password.value != value -> R.string.app_name
                         else -> null
                     }
                     _state.value = it.copy(
@@ -132,7 +132,7 @@ class LoginViewModel @Inject constructor(
                         auth = AuthEntity(previousState.login.value, previousState.password.value)
                         loginUserUseCase(auth)
                         val loanConditions = loanConditionUseCase()
-                        //todo: роутер
+                        activityRouter.openMainScreen(loanConditions)
                         return@launch
                     }
 
@@ -145,7 +145,7 @@ class LoginViewModel @Inject constructor(
                         registerUserUseCase(auth)
                         loginUserUseCase(auth)
                         val loanConditions = loanConditionUseCase()
-                        //todo: роутер
+                        activityRouter.openOnboarding(loanConditions)
                         return@launch
                     }
 

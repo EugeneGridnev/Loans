@@ -64,4 +64,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
 
     implementation ("androidx.fragment:fragment-ktx:1.8.0")
+
+    implementation ("com.squareup.retrofit2:converter-scalars:2.11.0")
 }
