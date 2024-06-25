@@ -10,7 +10,7 @@ interface ActivityRouter {
 
     fun openOnboardingFromMain()
 
-    fun openLoanAcceptedScreen()
+    fun openLoanAcceptedScreen(loanAmount: Int)
 
     fun openLoanDeniedScreen()
 

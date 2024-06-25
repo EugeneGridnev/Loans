@@ -20,7 +20,7 @@ class LoanApplicationViewModel @AssistedInject constructor(
     }
 
     fun openLoanAccepted(loanAmount: Int) {
-        activityRouter.openLoanAcceptedScreen()
+        activityRouter.openLoanAcceptedScreen(loanAmount)
     }
 
     fun openLoanDenied() {

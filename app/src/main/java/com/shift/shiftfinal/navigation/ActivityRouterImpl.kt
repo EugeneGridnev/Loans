@@ -1,9 +1,14 @@
 package com.shift.shiftfinal.navigation
 
 import com.github.terrakok.cicerone.Router
+import com.shift.shiftfinal.ui.screens.getBanksStubScreen
+import com.shift.shiftfinal.ui.screens.getHelpScreen
+import com.shift.shiftfinal.ui.screens.getLoanAcceptedScreen
+import com.shift.shiftfinal.ui.screens.getLoanDeniedScreen
 import com.shift.shiftfinal.ui.screens.getLoginScreen
 import com.shift.shiftfinal.ui.screens.getMainScreen
 import com.shift.shiftfinal.ui.screens.getOnBoardingScreen
+import com.shift.shiftfinal.ui.screens.getSpecialOfferScreen
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -26,24 +31,24 @@ class ActivityRouterImpl @Inject constructor(
         activityRouter.navigateTo(getOnBoardingScreen())
     }
 
-    override fun openLoanAcceptedScreen() {
-        TODO("Not yet implemented")
+    override fun openLoanAcceptedScreen(loanAmount: Int) {
+        activityRouter.navigateTo(getLoanAcceptedScreen(loanAmount))
     }
 
     override fun openLoanDeniedScreen() {
-        TODO("Not yet implemented")
+        activityRouter.navigateTo(getLoanDeniedScreen())
     }
 
     override fun openBanksStubScreen() {
-        TODO("Not yet implemented")
+        activityRouter.replaceScreen(getBanksStubScreen())
     }
 
     override fun openHelpScreen() {
-        TODO("Not yet implemented")
+        activityRouter.navigateTo(getHelpScreen())
     }
 
     override fun openSpecialOfferScreen() {
-        TODO("Not yet implemented")
+        activityRouter.navigateTo(getSpecialOfferScreen())
     }
 
     override fun backToMain() {
