@@ -1,6 +1,5 @@
 package com.shift.shiftfinal.domain.repository
 
-import com.shift.shiftfinal.data.model.Auth
 import com.shift.shiftfinal.domain.entity.AuthEntity
 
 interface AuthRepository {

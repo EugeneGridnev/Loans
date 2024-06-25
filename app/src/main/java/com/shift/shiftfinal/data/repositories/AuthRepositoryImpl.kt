@@ -30,9 +30,9 @@ class AuthRepositoryImpl @Inject constructor(
             authorizationService.setToken(result.body())
             return
         }
-        when(result.code()) {
+        when (result.code()) {
             404 -> throw AuthException("404 password problems")
-            else -> throw  ApiException(cause = HttpException(result))
+            else -> throw ApiException(cause = HttpException(result))
         }
 
     }
@@ -47,9 +47,9 @@ class AuthRepositoryImpl @Inject constructor(
         if (result.isSuccessful) {
             return
         }
-        when(result.code()) {
+        when (result.code()) {
             400 -> throw UserNameTakenException("User name already taken")
-            else -> throw  ApiException(cause = HttpException(result))
+            else -> throw ApiException(cause = HttpException(result))
         }
     }
 

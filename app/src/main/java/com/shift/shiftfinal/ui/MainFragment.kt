@@ -12,10 +12,7 @@ import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.shift.shiftfinal.MainActivity
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentMainBinding
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
-import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 import com.shift.shiftfinal.ui.screens.getHomeScreen
-import com.shift.shiftfinal.ui.screens.getMainScreen
 import com.shift.shiftfinal.ui.screens.getMenuScreen
 import javax.inject.Inject
 import javax.inject.Named
@@ -25,6 +22,7 @@ class MainFragment : Fragment() {
     @Inject
     @Named("MainFragmentRouter")
     lateinit var router: Router
+
     @Inject
     @Named("MainFragmentHolder")
     lateinit var navigatorHolder: NavigatorHolder

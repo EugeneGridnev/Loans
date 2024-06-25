@@ -31,7 +31,7 @@
             android:id="@+id/myLoansRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <ProgressBar
@@ -40,7 +40,7 @@
         android:layout_weight="0.8"
         android:layout_gravity="center"
         android:indeterminateTint="@color/permanent_primary"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,6 +52,6 @@
         android:textFontWeight="500"
         android:textSize="20sp"
         android:text="@string/loan_list_load_error"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </LinearLayout>

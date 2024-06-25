@@ -1,12 +1,11 @@
 package com.shift.shiftfinal.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.shift.shiftfinal.R
-import com.shift.shiftfinal.databinding.FragmentHomeBinding
 import com.shift.shiftfinal.databinding.FragmentMenuBinding
 import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
@@ -61,11 +60,11 @@ class MenuFragment : Fragment() {
 
             }
 
-            banks.setOnClickListener {  }
+            banks.setOnClickListener { }
 
-            help.setOnClickListener {  }
+            help.setOnClickListener { }
 
-            exit.setOnClickListener {  }
+            exit.setOnClickListener { }
         }
     }
 }

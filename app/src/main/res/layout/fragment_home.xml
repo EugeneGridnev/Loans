@@ -44,8 +44,7 @@
                 android:lineHeight="26dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/bannerText"
-                />
+                app:layout_constraintBottom_toTopOf="@+id/bannerText" />
 
             <TextView
                 android:id="@+id/bannerText"
@@ -79,12 +78,12 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="38dp"/>
+                    android:layout_marginStart="38dp" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="76dp"/>
+                    android:layout_marginStart="76dp" />
 
             </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -270,7 +269,7 @@
                 android:id="@+id/homeLoanRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"/>
+                android:layout_marginVertical="16dp" />
 
             <Button
                 android:id="@+id/allLoansButton"
@@ -281,7 +280,7 @@
                 android:backgroundTint="@color/bg_secondary"
                 android:text="@string/look_all_loans_button_text"
                 android:textColor="@color/font_primary"
-                app:cornerRadius="8dp"/>
+                app:cornerRadius="8dp" />
 
         </LinearLayout>
 

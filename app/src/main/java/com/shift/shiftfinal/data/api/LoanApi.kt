@@ -1,6 +1,5 @@
 package com.shift.shiftfinal.data.api
 
-import com.shift.shiftfinal.data.model.Auth
 import com.shift.shiftfinal.data.model.Loan
 import com.shift.shiftfinal.data.model.LoanCondition
 import com.shift.shiftfinal.data.model.LoanRequest
@@ -26,7 +25,7 @@ interface LoanApi {
         @Header("Authorization")
         token: String,
         @Path("id")
-        id:Int
+        id: Int
     ): Response<Loan>
 
     @GET("/loans/all")

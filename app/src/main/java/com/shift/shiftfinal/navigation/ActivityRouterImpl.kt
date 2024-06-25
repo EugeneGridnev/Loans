@@ -1,8 +1,6 @@
 package com.shift.shiftfinal.navigation
 
 import com.github.terrakok.cicerone.Router
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
-import com.shift.shiftfinal.ui.screens.getHomeScreen
 import com.shift.shiftfinal.ui.screens.getLoginScreen
 import com.shift.shiftfinal.ui.screens.getMainScreen
 import com.shift.shiftfinal.ui.screens.getOnBoardingScreen

@@ -2,23 +2,16 @@ package com.shift.shiftfinal.ui
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.shift.shiftfinal.App
 import com.shift.shiftfinal.R
-import com.shift.shiftfinal.data.model.LoanCondition
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
-import com.shift.shiftfinal.databinding.FragmentOnboardingFirstStepBinding
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.presentation.ViewModelFactory
 import com.shift.shiftfinal.presentation.viewmodels.HomeViewModel
-import com.shift.shiftfinal.presentation.viewmodels.SplashViewModel
-import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {

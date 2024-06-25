@@ -3,7 +3,6 @@ package com.shift.shiftfinal.di
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonDeserializationContext
 import com.shift.shiftfinal.data.AuthorizationService
 import com.shift.shiftfinal.data.api.AuthApi
 import com.shift.shiftfinal.data.api.LoanApi

@@ -38,7 +38,6 @@ class LoanDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
     }
 
     override fun onDestroyView() {

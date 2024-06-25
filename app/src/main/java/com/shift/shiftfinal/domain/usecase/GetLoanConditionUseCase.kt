@@ -1,7 +1,5 @@
 package com.shift.shiftfinal.domain.usecase
 
-import com.shift.shiftfinal.domain.entity.AuthEntity
-import com.shift.shiftfinal.domain.repository.AuthRepository
 import com.shift.shiftfinal.domain.repository.LoanRepository
 import javax.inject.Inject
 

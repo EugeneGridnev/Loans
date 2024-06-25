@@ -3,22 +3,20 @@ package com.shift.shiftfinal.ui
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.MainActivity
-import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoginBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
 import com.shift.shiftfinal.presentation.state.LoginScreenState
 import com.shift.shiftfinal.presentation.viewmodels.LoginViewModel
-import com.shift.shiftfinal.presentation.viewmodels.SplashViewModel
 import javax.inject.Inject
 
 class LoginFragment : Fragment() {

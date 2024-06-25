@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginVertical="8dp"
                 android:layout_marginHorizontal="1dp"
-                android:background="@drawable/divider_background"/>
+                android:background="@drawable/divider_background" />
 
             <Button
                 style="@style/Widget.Material3.Button.TextButton"

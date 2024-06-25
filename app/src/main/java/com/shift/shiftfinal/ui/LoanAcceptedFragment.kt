@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shift.shiftfinal.databinding.FragmentLoanAcceptedBinding
-import com.shift.shiftfinal.databinding.FragmentLoanDeniedBinding
 
 private const val LOAN_AMOUNT = "LOAN_AMOUNT"
 private var Bundle.loanAmount
@@ -37,7 +36,6 @@ class LoanAcceptedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
     }

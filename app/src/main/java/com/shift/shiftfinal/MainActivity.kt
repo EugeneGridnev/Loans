@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     @Named("ActivityRouter")
     lateinit var router: Router
+
     @Inject
     @Named("ActivityHolder")
     lateinit var navigatorHolder: NavigatorHolder

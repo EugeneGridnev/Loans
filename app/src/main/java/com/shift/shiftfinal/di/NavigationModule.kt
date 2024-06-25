@@ -56,12 +56,12 @@ abstract class NavigationModule {
     @Singleton
     abstract fun provideActivityRouter(
         activityRouter: ActivityRouterImpl
-    ) : ActivityRouter
+    ): ActivityRouter
 
     @Binds
     @Singleton
     abstract fun provideMainFragmentRouter(
         mainFragmentRouter: MainFragmentRouterImpl
-    ) : MainFragmentRouter
+    ): MainFragmentRouter
 
 }

@@ -343,6 +343,6 @@
         android:textColor="@color/font_secondary"
         android:textFontWeight="400"
         android:textSize="12sp"
-        android:text="@string/loan_details_hint_text"/>
+        android:text="@string/loan_details_hint_text" />
 
 </LinearLayout>

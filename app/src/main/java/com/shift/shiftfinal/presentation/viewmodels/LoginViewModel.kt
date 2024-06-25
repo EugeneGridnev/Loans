@@ -9,12 +9,10 @@ import com.shift.shiftfinal.domain.entity.AuthEntity
 import com.shift.shiftfinal.domain.exceptions.ApiException
 import com.shift.shiftfinal.domain.exceptions.AuthException
 import com.shift.shiftfinal.domain.exceptions.UserNameTakenException
-import com.shift.shiftfinal.domain.usecase.GetLoanConditionUseCase
 import com.shift.shiftfinal.domain.usecase.LoginUserUseCase
 import com.shift.shiftfinal.domain.usecase.LogoutUserUseCase
 import com.shift.shiftfinal.domain.usecase.RegisterUserUseCase
 import com.shift.shiftfinal.navigation.ActivityRouter
-import com.shift.shiftfinal.navigation.MainFragmentRouter
 import com.shift.shiftfinal.presentation.state.Field
 import com.shift.shiftfinal.presentation.state.LoginScreenState
 import kotlinx.coroutines.launch

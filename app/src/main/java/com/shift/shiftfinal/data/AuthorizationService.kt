@@ -12,7 +12,8 @@ class AuthorizationService(context: Context) {
         get() = sharedPref.getString(TOKEN_PREF, null)
 
     private val sharedPref = context.getSharedPreferences(
-        TOKEN_PREF, Context.MODE_PRIVATE)
+        TOKEN_PREF, Context.MODE_PRIVATE
+    )
 
 
     fun setToken(value: String?) {

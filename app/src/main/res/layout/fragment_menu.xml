@@ -28,8 +28,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.8">
-            <TableRow
-                android:id="@+id/myLoans">
+
+            <TableRow android:id="@+id/myLoans">
+
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
@@ -39,16 +40,17 @@
                     android:textFontWeight="500"
                     android:lineHeight="18sp"
                     android:textColor="@color/font_primary"
-                    android:text="@string/my_loans_text"/>
+                    android:text="@string/my_loans_text" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@drawable/arrow_right"/>
+                    android:src="@drawable/arrow_right" />
             </TableRow>
-            <TableRow
-                android:id="@+id/offers">
+
+            <TableRow android:id="@+id/offers">
+
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
@@ -58,16 +60,17 @@
                     android:textFontWeight="500"
                     android:lineHeight="18sp"
                     android:textColor="@color/font_primary"
-                    android:text="@string/offers_text"/>
+                    android:text="@string/offers_text" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@drawable/arrow_right"/>
+                    android:src="@drawable/arrow_right" />
             </TableRow>
-            <TableRow
-                android:id="@+id/banks">
+
+            <TableRow android:id="@+id/banks">
+
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
@@ -77,16 +80,17 @@
                     android:textFontWeight="500"
                     android:lineHeight="18sp"
                     android:textColor="@color/font_primary"
-                    android:text="@string/banks_text"/>
+                    android:text="@string/banks_text" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@drawable/arrow_right"/>
+                    android:src="@drawable/arrow_right" />
             </TableRow>
-            <TableRow
-                android:id="@+id/help">
+
+            <TableRow android:id="@+id/help">
+
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
@@ -96,16 +100,17 @@
                     android:textFontWeight="500"
                     android:lineHeight="18sp"
                     android:textColor="@color/font_primary"
-                    android:text="@string/help_menu_text"/>
+                    android:text="@string/help_menu_text" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@drawable/arrow_right"/>
+                    android:src="@drawable/arrow_right" />
             </TableRow>
-            <TableRow
-                android:id="@+id/exit">
+
+            <TableRow android:id="@+id/exit">
+
                 <TextView
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
@@ -115,13 +120,13 @@
                     android:textFontWeight="500"
                     android:lineHeight="18sp"
                     android:textColor="@color/font_primary"
-                    android:text="@string/exit_text"/>
+                    android:text="@string/exit_text" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_margin="16dp"
-                    android:src="@drawable/arrow_right"/>
+                    android:src="@drawable/arrow_right" />
             </TableRow>
 
         </TableLayout>

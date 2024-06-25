@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.MainActivity
-import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentSplashBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
 import com.shift.shiftfinal.presentation.state.SplashScreenState
@@ -43,7 +42,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.state.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 is SplashScreenState.Error -> {}
                 SplashScreenState.Loading -> {}
             }

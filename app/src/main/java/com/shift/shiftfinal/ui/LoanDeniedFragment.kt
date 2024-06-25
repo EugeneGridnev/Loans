@@ -25,7 +25,6 @@ class LoanDeniedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
     }
 
     override fun onDestroyView() {

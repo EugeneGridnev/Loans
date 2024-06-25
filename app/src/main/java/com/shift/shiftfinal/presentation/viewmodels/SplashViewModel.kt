@@ -39,8 +39,7 @@ class SplashViewModel @Inject constructor(
                 logoutUserUseCase()
                 activityRouter.openLoginScreen()
                 return@launch
-            }
-            catch (_: ApiException) {
+            } catch (_: ApiException) {
                 _state.value = SplashScreenState.Error("Сервис временно не работает!")
                 return@launch
             }

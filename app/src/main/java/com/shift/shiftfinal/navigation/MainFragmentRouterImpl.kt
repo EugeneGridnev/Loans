@@ -11,7 +11,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class MainFragmentRouterImpl @Inject constructor(
-    @Named("MainFragmentRouter")private val mainFragmentRouter: Router
+    @Named("MainFragmentRouter") private val mainFragmentRouter: Router
 ) : MainFragmentRouter {
     override fun openHomeScreen() {
         mainFragmentRouter.replaceScreen(getHomeScreen())
