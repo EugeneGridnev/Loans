@@ -20,29 +20,7 @@ import com.shift.shiftfinal.ui.screens.getMenuScreen
 import javax.inject.Inject
 import javax.inject.Named
 
-private const val MAX_AMOUNT = "MAX_AMOUNT"
-private const val PERCENT = "PERCENT"
-private const val PERIOD = "PERIOD"
-private var Bundle.loanCondition
-    get() = LoanConditionEntity(
-        maxAmount = getInt(MAX_AMOUNT),
-        percent = getDouble(PERCENT),
-        period = getInt(PERIOD),
-    )
-    set(value) {
-        putInt(MAX_AMOUNT, value.maxAmount)
-        putDouble(PERCENT, value.percent)
-        putInt(PERIOD, value.period)
-    }
-
 class MainFragment : Fragment() {
-
-    companion object {
-
-        fun newInstance(loanCondition: LoanConditionEntity): Fragment = MainFragment().apply {
-            arguments = Bundle().apply { this.loanCondition = loanCondition }
-        }
-    }
 
     @Inject
     @Named("MainFragmentRouter")
@@ -76,7 +54,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (savedInstanceState == null) {
-            router.newRootScreen(getHomeScreen(requireArguments().loanCondition))
+            router.newRootScreen(getHomeScreen())
         }
 
         with(binding) {
@@ -84,7 +62,7 @@ class MainFragment : Fragment() {
             bottomNavigation.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.main -> {
-                        router.replaceScreen(getHomeScreen(requireArguments().loanCondition))
+                        router.replaceScreen(getHomeScreen())
                         true
                     }
 

@@ -4,21 +4,18 @@ import androidx.lifecycle.ViewModel
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.navigation.ActivityRouter
 import com.shift.shiftfinal.navigation.MainFragmentRouter
-import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
+class LoanDeniedViewModel @Inject constructor(
     private val activityRouter: ActivityRouter,
     private val mainFragmentRouter: MainFragmentRouter
 ) : ViewModel() {
 
-    fun openOnboarding() {
-        activityRouter.openOnboardingFromMain()
+    fun backToMain() {
+        mainFragmentRouter.back()
+        activityRouter.backToMain()
     }
 
-    fun openLoanApplication(loanCondition: LoanConditionEntity) {
-        mainFragmentRouter.openLoanApplicationScreen(loanCondition)
-    }
 }

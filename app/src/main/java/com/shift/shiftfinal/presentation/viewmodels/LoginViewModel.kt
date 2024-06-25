@@ -22,7 +22,6 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor(
     private val activityRouter: ActivityRouter,
-    private val loanConditionUseCase: GetLoanConditionUseCase,
     private val logoutUserUseCase: LogoutUserUseCase,
     private val registerUserUseCase: RegisterUserUseCase,
     private val loginUserUseCase: LoginUserUseCase,
@@ -131,8 +130,7 @@ class LoginViewModel @Inject constructor(
                         _state.value = LoginScreenState.Loading
                         auth = AuthEntity(previousState.login.value, previousState.password.value)
                         loginUserUseCase(auth)
-                        val loanConditions = loanConditionUseCase()
-                        activityRouter.openMainScreen(loanConditions)
+                        activityRouter.openMainScreen()
                         return@launch
                     }
 
@@ -144,8 +142,7 @@ class LoginViewModel @Inject constructor(
                         auth = AuthEntity(previousState.login.value, previousState.password.value)
                         registerUserUseCase(auth)
                         loginUserUseCase(auth)
-                        val loanConditions = loanConditionUseCase()
-                        activityRouter.openOnboarding(loanConditions)
+                        activityRouter.openOnboarding()
                         return@launch
                     }
 

@@ -16,12 +16,16 @@ class ActivityRouterImpl @Inject constructor(
         activityRouter.replaceScreen(getLoginScreen())
     }
 
-    override fun openMainScreen(loanCondition: LoanConditionEntity) {
-        activityRouter.replaceScreen(getMainScreen(loanCondition))
+    override fun openMainScreen() {
+        activityRouter.replaceScreen(getMainScreen())
     }
 
-    override fun openOnboarding(loanCondition: LoanConditionEntity) {
-        activityRouter.replaceScreen(getOnBoardingScreen(loanCondition))
+    override fun openOnboarding() {
+        activityRouter.replaceScreen(getOnBoardingScreen())
+    }
+
+    override fun openOnboardingFromMain() {
+        activityRouter.navigateTo(getOnBoardingScreen())
     }
 
     override fun openLoanAcceptedScreen() {
@@ -44,6 +48,9 @@ class ActivityRouterImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
+    override fun backToMain() {
+        activityRouter.backTo(getMainScreen())
+    }
 
 }
 

@@ -4,12 +4,12 @@ import androidx.lifecycle.ViewModel
 import com.shift.shiftfinal.navigation.ActivityRouter
 import javax.inject.Inject
 
-class OnBoardingViewModel @Inject constructor(
+class HelpViewModel @Inject constructor(
     private val activityRouter: ActivityRouter
 ) : ViewModel() {
 
-    fun openMain() {
-        activityRouter.openMainScreen()
-    }
 
+    fun backToMenu() {
+        activityRouter.backToMain()
+    }
 }

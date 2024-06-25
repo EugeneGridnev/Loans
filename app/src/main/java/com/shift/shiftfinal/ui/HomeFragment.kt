@@ -15,50 +15,24 @@ import com.shift.shiftfinal.data.model.LoanCondition
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
 import com.shift.shiftfinal.databinding.FragmentOnboardingFirstStepBinding
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
+import com.shift.shiftfinal.presentation.ViewModelFactory
 import com.shift.shiftfinal.presentation.viewmodels.HomeViewModel
+import com.shift.shiftfinal.presentation.viewmodels.SplashViewModel
 import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 import javax.inject.Inject
 
-private const val MAX_AMOUNT = "MAX_AMOUNT"
-private const val PERCENT = "PERCENT"
-private const val PERIOD = "PERIOD"
-private var Bundle.loanCondition
-    get() = LoanConditionEntity(
-        maxAmount = getInt(MAX_AMOUNT),
-        percent = getDouble(PERCENT),
-        period = getInt(PERIOD),
-    )
-    set(value) {
-        putInt(MAX_AMOUNT, value.maxAmount)
-        putDouble(PERCENT, value.percent)
-        putInt(PERIOD, value.period)
-    }
-
 class HomeFragment : Fragment() {
-
-    companion object {
-
-        fun newInstance(loanCondition: LoanConditionEntity): Fragment = HomeFragment().apply {
-            arguments = Bundle().apply { this.loanCondition = loanCondition }
-        }
-    }
-
     @Inject
-    lateinit var homeViewModelFactory: HomeViewModel.Factory
-    private val viewModel: HomeViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return homeViewModelFactory.create(arguments!!.loanCondition) as T
-            }
-        }
-    }
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel: HomeViewModel by viewModels { viewModelFactory }
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
-        super.onAttach(context)
         (requireActivity().application as App).appComponent.inject(this)
+        super.onAttach(context)
     }
 
     override fun onCreateView(
@@ -77,7 +51,7 @@ class HomeFragment : Fragment() {
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.info -> {
-                    viewModel.openOnboarding(requireArguments().loanCondition)
+                    viewModel.openOnboarding()
                     true
                 }
 
@@ -86,7 +60,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnLoanApplication.setOnClickListener {
-            viewModel.openLoanApplication(requireArguments().loanCondition)
+            //viewModel.openLoanApplication()
         }
 
     }

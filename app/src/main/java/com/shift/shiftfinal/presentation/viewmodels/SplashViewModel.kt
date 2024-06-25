@@ -44,7 +44,7 @@ class SplashViewModel @Inject constructor(
                 _state.value = SplashScreenState.Error("Сервис временно не работает!")
                 return@launch
             }
-            activityRouter.openMainScreen(loanConditions)
+            activityRouter.openMainScreen()
         }
     }
 }

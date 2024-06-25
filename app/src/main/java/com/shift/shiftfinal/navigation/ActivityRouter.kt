@@ -6,9 +6,11 @@ interface ActivityRouter {
 
     fun openLoginScreen()
 
-    fun openMainScreen(loanCondition: LoanConditionEntity)
+    fun openMainScreen()
 
-    fun openOnboarding(loanCondition: LoanConditionEntity)
+    fun openOnboarding()
+
+    fun openOnboardingFromMain()
 
     fun openLoanAcceptedScreen()
 
@@ -19,4 +21,6 @@ interface ActivityRouter {
     fun openHelpScreen()
 
     fun openSpecialOfferScreen()
+
+    fun backToMain()
 }

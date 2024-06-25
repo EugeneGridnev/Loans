@@ -8,7 +8,20 @@ import androidx.fragment.app.Fragment
 import com.shift.shiftfinal.databinding.FragmentLoanAcceptedBinding
 import com.shift.shiftfinal.databinding.FragmentLoanDeniedBinding
 
+private const val LOAN_AMOUNT = "LOAN_AMOUNT"
+private var Bundle.loanAmount
+    get() = getInt(LOAN_AMOUNT)
+    set(value) = putInt(LOAN_AMOUNT, value)
+
 class LoanAcceptedFragment : Fragment() {
+
+    companion object {
+
+        fun newInstance(loanAmount: Int): Fragment = LoanDetailsFragment().apply {
+            arguments = Bundle().apply { this.loanAmount = loanAmount }
+        }
+    }
+
     private var _binding: FragmentLoanAcceptedBinding? = null
     private val binding get() = _binding!!
 

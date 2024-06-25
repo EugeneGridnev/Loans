@@ -13,8 +13,8 @@ import javax.inject.Named
 class MainFragmentRouterImpl @Inject constructor(
     @Named("MainFragmentRouter")private val mainFragmentRouter: Router
 ) : MainFragmentRouter {
-    override fun openHomeScreen(loanCondition: LoanConditionEntity) {
-        mainFragmentRouter.replaceScreen(getHomeScreen(loanCondition))
+    override fun openHomeScreen() {
+        mainFragmentRouter.replaceScreen(getHomeScreen())
     }
 
     override fun openMenuScreen() {
@@ -31,5 +31,9 @@ class MainFragmentRouterImpl @Inject constructor(
 
     override fun openLoanApplicationScreen(loanCondition: LoanConditionEntity) {
         mainFragmentRouter.navigateTo(getLoanApplicationScreen(loanCondition))
+    }
+
+    override fun back() {
+        mainFragmentRouter.exit()
     }
 }

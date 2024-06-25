@@ -9,16 +9,15 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
-    private val activityRouter: ActivityRouter,
-    private val mainFragmentRouter: MainFragmentRouter
+class SpecialOfferViewModel @Inject constructor(
+    private val activityRouter: ActivityRouter
 ) : ViewModel() {
 
-    fun openOnboarding() {
-        activityRouter.openOnboardingFromMain()
+    fun backToMain() {
+        activityRouter.backToMain()
     }
 
-    fun openLoanApplication(loanCondition: LoanConditionEntity) {
-        mainFragmentRouter.openLoanApplicationScreen(loanCondition)
+    fun openBanksStub() {
+        activityRouter.openBanksStubScreen()
     }
 }
