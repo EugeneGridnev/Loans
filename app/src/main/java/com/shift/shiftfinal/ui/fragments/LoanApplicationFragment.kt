@@ -1,25 +1,19 @@
 package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.shift.shiftfinal.App
-import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoanApplicationBinding
 import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.presentation.state.LoanApplicationScreenState
-import com.shift.shiftfinal.presentation.state.LoginScreenState
 import com.shift.shiftfinal.presentation.viewmodels.LoanApplicationViewModel
 import javax.inject.Inject
 

@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.domain.exceptions.ApiException
 import com.shift.shiftfinal.domain.exceptions.AuthException
 import com.shift.shiftfinal.domain.usecase.GetLoanConditionUseCase
@@ -16,7 +15,6 @@ import com.shift.shiftfinal.navigation.MainFragmentRouter
 import com.shift.shiftfinal.presentation.state.HomeScreenState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 class HomeViewModel @Inject constructor(
     private val activityRouter: ActivityRouter,
@@ -96,7 +94,7 @@ class HomeViewModel @Inject constructor(
         mainFragmentRouter.openMyLoansScreen()
     }
 
-    fun openLoanInfo(loanId:Int) {
+    fun openLoanInfo(loanId: Int) {
         mainFragmentRouter.openLoanDetailsScreen(loanId)
     }
 

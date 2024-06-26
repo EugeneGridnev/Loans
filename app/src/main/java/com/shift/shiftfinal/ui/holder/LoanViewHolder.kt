@@ -15,15 +15,17 @@ class LoanViewHolder(
         with(binding) {
             loanNumber.text = "№ ${loanEntity.id}"
             loanValue.text = "${loanEntity.amount} ₽"
-            when(loanEntity.state) {
+            when (loanEntity.state) {
                 LoanState.APPROVED -> {
                     loanStatus.text = itemView.context.getString(R.string.indicator_approved_text)
                     loanStatus.setTextColor(itemView.context.getColor(R.color.indicator_positive))
                 }
+
                 LoanState.REGISTERED -> {
                     loanStatus.text = itemView.context.getString(R.string.inicator_registered_text)
                     loanStatus.setTextColor(itemView.context.getColor(R.color.indicator_attention))
                 }
+
                 LoanState.REJECTED -> {
                     loanStatus.text = itemView.context.getString(R.string.indicator_done_text)
                 }

@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.shift.shiftfinal.MainActivity
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoanDetailsBinding
@@ -99,14 +98,16 @@ class LoanDetailsFragment : Fragment() {
                             loanStatus.text =
                                 requireContext().getString(R.string.indicator_approved_text)
                             loanStatus.setTextColor(
-                                requireContext().getColor(R.color.indicator_positive))
+                                requireContext().getColor(R.color.indicator_positive)
+                            )
                         }
 
                         LoanState.REGISTERED -> {
                             loanStatus.text =
                                 requireContext().getString(R.string.inicator_registered_text)
                             loanStatus.setTextColor(
-                                requireContext().getColor(R.color.indicator_attention))
+                                requireContext().getColor(R.color.indicator_attention)
+                            )
                         }
 
                         LoanState.REJECTED -> {
