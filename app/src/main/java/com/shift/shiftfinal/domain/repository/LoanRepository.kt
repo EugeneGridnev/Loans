@@ -8,4 +8,6 @@ interface LoanRepository {
     suspend fun getMyLoans(): List<LoanEntity>
 
     suspend fun getLoanCondition(): LoanConditionEntity
+
+    suspend fun getLoanDetails(loanId: Int): LoanEntity
 }

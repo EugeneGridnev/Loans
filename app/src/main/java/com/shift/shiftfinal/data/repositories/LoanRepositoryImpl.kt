@@ -47,6 +47,21 @@ class LoanRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getLoanDetails(loanId: Int): LoanEntity {
+        val result = withToken {
+            loanApi.getLoanData(it, loanId)
+        }
+
+        if (result.isSuccessful) {
+            return Converter.loanToLoanEntity(result.body()!!)
+        }
+        when (result.code()) {
+            401, 403 -> throw AuthException("Token is dead")
+
+            else -> throw ApiException(cause = HttpException(result))
+        }
+    }
+
     private inline fun <T> withToken(block: (String) -> T): T {
         val token = authorizationService.token ?: throw AuthException()
         return try {
