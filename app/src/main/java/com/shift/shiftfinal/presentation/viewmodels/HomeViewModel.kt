@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.domain.exceptions.ApiException
 import com.shift.shiftfinal.domain.exceptions.AuthException
@@ -104,8 +105,8 @@ class HomeViewModel @Inject constructor(
             when (it) {
                 is HomeScreenState.Content -> {
                     mainFragmentRouter.openLoanApplicationScreen(
-                        LoanConditionEntity(
-                            maxAmount = it.loanHomeConditionEntity.amount,
+                        LoanApplicationEntity(
+                            amount = it.loanHomeConditionEntity.amount,
                             percent = it.loanHomeConditionEntity.percent,
                             period = it.loanHomeConditionEntity.period
                         )

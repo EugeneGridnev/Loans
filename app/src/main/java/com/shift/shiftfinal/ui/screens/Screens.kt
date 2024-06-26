@@ -1,6 +1,7 @@
 package com.shift.shiftfinal.ui.screens
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
+import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.ui.fragments.BanksStubFragment
 import com.shift.shiftfinal.ui.fragments.HelpFragment
@@ -27,8 +28,8 @@ fun getMainScreen() = FragmentScreen { MainFragment() }
 
 fun getHomeScreen() = FragmentScreen { HomeFragment() }
 
-fun getLoanApplicationScreen(loanCondition: LoanConditionEntity) =
-    FragmentScreen { LoanApplicationFragment.newInstance(loanCondition) }
+fun getLoanApplicationScreen(loanApplicationEntity: LoanApplicationEntity) =
+    FragmentScreen { LoanApplicationFragment.newInstance(loanApplicationEntity) }
 
 fun getLoanAcceptedScreen(loanAmount: Int) =
     FragmentScreen { LoanAcceptedFragment.newInstance(loanAmount) }

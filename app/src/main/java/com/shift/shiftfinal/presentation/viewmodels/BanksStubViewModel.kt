@@ -7,13 +7,11 @@ import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
 class BanksStubViewModel @Inject constructor(
-    private val activityRouter: ActivityRouter,
-    private val mainFragmentRouter: MainFragmentRouter
+    private val activityRouter: ActivityRouter
 ) : ViewModel() {
 
 
     fun backToMain() {
-        mainFragmentRouter.back()
         activityRouter.backToMain()
     }
 

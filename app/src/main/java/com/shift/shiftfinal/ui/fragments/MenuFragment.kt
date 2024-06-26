@@ -80,7 +80,7 @@ class MenuFragment : Fragment() {
             }
 
             exit.setOnClickListener {
-
+                viewModel.appExit()
             }
         }
     }

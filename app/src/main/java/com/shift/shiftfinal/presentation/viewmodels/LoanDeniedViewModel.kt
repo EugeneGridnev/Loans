@@ -7,11 +7,9 @@ import javax.inject.Inject
 
 class LoanDeniedViewModel @Inject constructor(
     private val activityRouter: ActivityRouter,
-    private val mainFragmentRouter: MainFragmentRouter
 ) : ViewModel() {
 
     fun backToMain() {
-        mainFragmentRouter.back()
         activityRouter.backToMain()
     }
 

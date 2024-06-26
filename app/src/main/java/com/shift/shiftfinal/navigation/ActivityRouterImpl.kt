@@ -3,6 +3,7 @@ package com.shift.shiftfinal.navigation
 import com.github.terrakok.cicerone.Router
 import com.shift.shiftfinal.ui.screens.getBanksStubScreen
 import com.shift.shiftfinal.ui.screens.getHelpScreen
+import com.shift.shiftfinal.ui.screens.getHomeScreen
 import com.shift.shiftfinal.ui.screens.getLoanAcceptedScreen
 import com.shift.shiftfinal.ui.screens.getLoanDeniedScreen
 import com.shift.shiftfinal.ui.screens.getLoginScreen
@@ -52,7 +53,11 @@ class ActivityRouterImpl @Inject constructor(
     }
 
     override fun backToMain() {
-        activityRouter.exit()
+        activityRouter.backTo(getHomeScreen())
+    }
+
+    override fun exitToLogin() {
+        activityRouter.newRootChain(getLoginScreen())
     }
 
 }

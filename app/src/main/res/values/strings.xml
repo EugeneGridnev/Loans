@@ -67,4 +67,5 @@
     <string name="indicator_approved_text">Одобрен</string>
     <string name="inicator_registered_text">На рассмотрении</string>
     <string name="indicator_done_text">Выдан</string>
+    <string name="loan_application_tab_title">Оформление займа</string>
 </resources>

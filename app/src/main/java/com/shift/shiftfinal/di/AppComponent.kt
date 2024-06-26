@@ -8,6 +8,7 @@ import com.shift.shiftfinal.ui.fragments.HomeFragment
 import com.shift.shiftfinal.ui.fragments.LoanAcceptedFragment
 import com.shift.shiftfinal.ui.fragments.LoanApplicationFragment
 import com.shift.shiftfinal.ui.fragments.LoanDeniedFragment
+import com.shift.shiftfinal.ui.fragments.LoanDetailsFragment
 import com.shift.shiftfinal.ui.fragments.LoginFragment
 import com.shift.shiftfinal.ui.fragments.MainFragment
 import com.shift.shiftfinal.ui.fragments.MenuFragment
@@ -48,6 +49,7 @@ interface AppComponent {
     fun inject(fragment: MyLoansFragment)
     fun inject(fragment: SpecialOfferFragment)
     fun inject(fragment: LoanAcceptedFragment)
+    fun inject(fragment: LoanDetailsFragment)
     fun inject(fragment: LoanApplicationFragment)
     fun inject(fragment: HelpFragment)
     fun inject(fragment: OnBoardingFragment)

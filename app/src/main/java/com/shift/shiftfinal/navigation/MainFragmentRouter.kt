@@ -1,5 +1,6 @@
 package com.shift.shiftfinal.navigation
 
+import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 
 interface MainFragmentRouter {
@@ -12,7 +13,7 @@ interface MainFragmentRouter {
 
     fun openLoanDetailsScreen(loanId: Int)
 
-    fun openLoanApplicationScreen(loanCondition: LoanConditionEntity)
+    fun openLoanApplicationScreen(loanApplication: LoanApplicationEntity)
 
     fun back()
 

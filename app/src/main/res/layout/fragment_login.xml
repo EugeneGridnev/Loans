@@ -77,6 +77,8 @@
                     android:id="@+id/loginEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:textColor="@color/font_primary">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -99,6 +101,8 @@
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
                     android:textColor="@color/font_primary">
 
                 </com.google.android.material.textfield.TextInputEditText>

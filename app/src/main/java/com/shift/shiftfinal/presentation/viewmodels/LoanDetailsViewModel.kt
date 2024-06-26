@@ -29,7 +29,7 @@ class LoanDetailsViewModel @AssistedInject constructor(
         fun create(loanId: Int): LoanDetailsViewModel
     }
 
-    private val _state = MutableLiveData<LoanDetailsScreenState>(LoanDetailsScreenState.Loading)
+    private val _state = MutableLiveData<LoanDetailsScreenState>(LoanDetailsScreenState.Initial)
     val state: LiveData<LoanDetailsScreenState> = _state
 
     fun back() {

@@ -21,4 +21,6 @@ interface ActivityRouter {
     fun openSpecialOfferScreen()
 
     fun backToMain()
+
+    fun exitToLogin()
 }

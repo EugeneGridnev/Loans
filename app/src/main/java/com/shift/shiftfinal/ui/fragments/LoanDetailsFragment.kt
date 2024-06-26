@@ -1,5 +1,6 @@
 package com.shift.shiftfinal.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.shift.shiftfinal.MainActivity
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoanDetailsBinding
 import com.shift.shiftfinal.domain.entity.LoanState
@@ -46,6 +49,11 @@ class LoanDetailsFragment : Fragment() {
     private var _binding: FragmentLoanDetailsBinding? = null
     private val binding get() = _binding!!
 
+    override fun onAttach(context: Context) {
+        (activity as MainActivity).appComponent.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,7 +77,7 @@ class LoanDetailsFragment : Fragment() {
             is LoanDetailsScreenState.Content -> {
                 with(binding) {
 
-
+                    refresh.isRefreshing = false
                     content.isVisible = true
                     progress.isVisible = false
                     errorMessage.isVisible = false
@@ -77,7 +85,13 @@ class LoanDetailsFragment : Fragment() {
                     topAppBar.title = "№ ${state.loanData.id}"
 
                     loanName.text = state.loanData.firstName
+                    loanSecondName.text = state.loanData.lastName
                     loanTelephoneNumber.text = state.loanData.phoneNumber
+
+                    loanNumber.text = state.loanData.id.toString()
+                    loanPeriod.text = state.loanData.period.toString()
+                    loanPercent.text = "${state.loanData.percent} %"
+                    loanAmount.text = "${state.loanData.percent} ₽"
                     loanDate.text = state.loanData.date.format(dateFormater)
 
                     when (state.loanData.state) {
@@ -91,7 +105,8 @@ class LoanDetailsFragment : Fragment() {
                         LoanState.REGISTERED -> {
                             loanStatus.text =
                                 requireContext().getString(R.string.inicator_registered_text)
-                            loanStatus.setTextColor(requireContext().getColor(R.color.indicator_attention))
+                            loanStatus.setTextColor(
+                                requireContext().getColor(R.color.indicator_attention))
                         }
 
                         LoanState.REJECTED -> {

@@ -47,6 +47,10 @@ class MyLoansFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        with(binding) {
+            topAppBar.setNavigationOnClickListener { viewModel.back() }
+            refresh.setOnRefreshListener { viewModel.getMyLoans() }
+        }
         setUpLoansRecycler()
         viewModel.state.observe(viewLifecycleOwner, ::observeState)
     }
@@ -55,6 +59,7 @@ class MyLoansFragment : Fragment() {
         when(state) {
             is MyLoansScreenState.Content -> {
                 with(binding) {
+                    refresh.isRefreshing = false
                     content.isVisible = true
                     progress.isVisible = false
                     errorMessage.isVisible = false

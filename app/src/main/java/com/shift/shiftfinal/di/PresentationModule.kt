@@ -49,7 +49,7 @@ interface PresentationModule {
     @Binds
     @IntoMap
     @ViewModelKey(BanksStubViewModel::class)
-    fun bindBanksStubViewModel(viewmodel: LoginViewModel): ViewModel
+    fun bindBanksStubViewModel(viewmodel: BanksStubViewModel): ViewModel
 
     @Binds
     @IntoMap

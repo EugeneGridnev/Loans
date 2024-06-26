@@ -5,6 +5,7 @@ import com.shift.shiftfinal.data.api.LoanApi
 import com.shift.shiftfinal.data.converter.Converter
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.domain.entity.LoanEntity
+import com.shift.shiftfinal.domain.entity.LoanRequestEntity
 import com.shift.shiftfinal.domain.exceptions.ApiException
 import com.shift.shiftfinal.domain.exceptions.AuthException
 import com.shift.shiftfinal.domain.repository.LoanRepository
@@ -52,6 +53,20 @@ class LoanRepositoryImpl @Inject constructor(
             loanApi.getLoanData(it, loanId)
         }
 
+        if (result.isSuccessful) {
+            return Converter.loanToLoanEntity(result.body()!!)
+        }
+        when (result.code()) {
+            401, 403 -> throw AuthException("Token is dead")
+
+            else -> throw ApiException(cause = HttpException(result))
+        }
+    }
+
+    override suspend fun createLoan(loanRequest: LoanRequestEntity): LoanEntity {
+        val result = withToken {
+            loanApi.createLoan(it, Converter.loanRequestEntityToLoanRequest(loanRequest))
+        }
         if (result.isSuccessful) {
             return Converter.loanToLoanEntity(result.body()!!)
         }

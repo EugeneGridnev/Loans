@@ -12,6 +12,7 @@ import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.time.OffsetDateTime
 import java.time.OffsetTime
 import javax.inject.Singleton
 
@@ -39,7 +40,7 @@ object DataModule {
 
 
     private fun provideGson(): Gson = GsonBuilder().apply {
-        registerTypeAdapter(OffsetTime::class.java, OffsetDateTimeConverter)
+        registerTypeAdapter(OffsetDateTime::class.java, OffsetDateTimeConverter)
     }.create()
 
     @Provides

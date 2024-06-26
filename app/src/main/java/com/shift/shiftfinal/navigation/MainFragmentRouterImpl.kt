@@ -1,6 +1,7 @@
 package com.shift.shiftfinal.navigation
 
 import com.github.terrakok.cicerone.Router
+import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.ui.screens.getHomeScreen
 import com.shift.shiftfinal.ui.screens.getLoanApplicationScreen
@@ -29,8 +30,8 @@ class MainFragmentRouterImpl @Inject constructor(
         mainFragmentRouter.navigateTo(getLoanDetailsScreen(loanId))
     }
 
-    override fun openLoanApplicationScreen(loanCondition: LoanConditionEntity) {
-        mainFragmentRouter.navigateTo(getLoanApplicationScreen(loanCondition))
+    override fun openLoanApplicationScreen(loanApplication: LoanApplicationEntity) {
+        mainFragmentRouter.navigateTo(getLoanApplicationScreen(loanApplication))
     }
 
     override fun back() {

@@ -10,7 +10,6 @@ import dagger.assisted.AssistedInject
 class LoanAcceptedViewModel @AssistedInject constructor(
     @Assisted private val loanAmount: Int,
     private val activityRouter: ActivityRouter,
-    private val mainFragmentRouter: MainFragmentRouter
 ) : ViewModel() {
 
     @AssistedFactory
@@ -25,7 +24,6 @@ class LoanAcceptedViewModel @AssistedInject constructor(
     }
 
     fun backToMain() {
-        mainFragmentRouter.back()
         activityRouter.backToMain()
     }
 }

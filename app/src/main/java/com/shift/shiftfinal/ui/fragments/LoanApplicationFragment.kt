@@ -1,31 +1,39 @@
 package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.shift.shiftfinal.App
+import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentLoanApplicationBinding
+import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
+import com.shift.shiftfinal.presentation.state.LoanApplicationScreenState
+import com.shift.shiftfinal.presentation.state.LoginScreenState
 import com.shift.shiftfinal.presentation.viewmodels.LoanApplicationViewModel
 import javax.inject.Inject
 
-private const val MAX_AMOUNT = "MAX_AMOUNT"
+private const val AMOUNT = "AMOUNT"
 private const val PERCENT = "PERCENT"
 private const val PERIOD = "PERIOD"
-private var Bundle.loanCondition
-    get() = LoanConditionEntity(
-        maxAmount = getInt(MAX_AMOUNT),
+private var Bundle.loanApplication
+    get() = LoanApplicationEntity(
+        amount = getInt(AMOUNT),
         percent = getDouble(PERCENT),
         period = getInt(PERIOD),
     )
     set(value) {
-        putInt(MAX_AMOUNT, value.maxAmount)
+        putInt(AMOUNT, value.amount)
         putDouble(PERCENT, value.percent)
         putInt(PERIOD, value.period)
     }
@@ -34,9 +42,9 @@ class LoanApplicationFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(loanCondition: LoanConditionEntity): Fragment =
+        fun newInstance(loanApplication: LoanApplicationEntity): Fragment =
             LoanApplicationFragment().apply {
-                arguments = Bundle().apply { this.loanCondition = loanCondition }
+                arguments = Bundle().apply { this.loanApplication = loanApplication }
             }
     }
 
@@ -45,7 +53,7 @@ class LoanApplicationFragment : Fragment() {
     private val viewModel: LoanApplicationViewModel by viewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return loanApplicationViewModelFactory.create(requireArguments().loanCondition) as T
+                return loanApplicationViewModelFactory.create(requireArguments().loanApplication) as T
             }
         }
     }
@@ -71,14 +79,61 @@ class LoanApplicationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.topAppBar.setNavigationOnClickListener {
-            viewModel.back()
-        }
+        setListeners()
+
+        viewModel.state.observe(viewLifecycleOwner, ::observeState)
 
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setListeners() {
+
+        with(binding) {
+            topAppBar.setNavigationOnClickListener { viewModel.back() }
+            btnApplyLoan.setOnClickListener { viewModel.sendLoanApplication() }
+            loanNameEditText.doAfterTextChanged { viewModel.setName(it.toString()) }
+            loanSecondNameEditText.doAfterTextChanged { viewModel.setSecondName(it.toString()) }
+            loanPhoneEditText.doAfterTextChanged { viewModel.setPhoneNumber(it.toString()) }
+        }
+
+    }
+
+    private fun observeState(state: LoanApplicationScreenState) {
+        when (state) {
+            LoanApplicationScreenState.Loading -> {
+                binding.btnApplyLoan.isEnabled = false
+            }
+
+            is LoanApplicationScreenState.Content -> {
+                with(binding) {
+                    btnApplyLoan.isEnabled = state.isValid
+
+                    state.name.let {
+                        if (!it.edited) {
+                            loanNameEditText.setText(it.value)
+                        }
+                        loanName.error = it.error?.let { getString(it) }
+                    }
+
+                    state.secondName.let {
+                        if (!it.edited) {
+                            loanSecondNameEditText.setText(it.value)
+                        }
+                        loanSecondName.error = it.error?.let { getString(it) }
+                    }
+                    state.phone.let {
+                        if (!it.edited) {
+                            loanPhoneEditText.setText(it.value)
+                        }
+                    }
+
+                }
+            }
+
+        }
     }
 }

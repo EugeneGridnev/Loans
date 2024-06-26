@@ -23,7 +23,7 @@ class MyLoansViewModel @Inject constructor(
     private val logoutUserUseCase: LogoutUserUseCase
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<MyLoansScreenState>(MyLoansScreenState.Loading)
+    private val _state = MutableLiveData<MyLoansScreenState>(MyLoansScreenState.Initial)
     val state: LiveData<MyLoansScreenState> = _state
 
     fun getMyLoans() {

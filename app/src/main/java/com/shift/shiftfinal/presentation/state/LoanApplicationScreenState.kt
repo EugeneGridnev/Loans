@@ -1,13 +1,14 @@
 package com.shift.shiftfinal.presentation.state
 
-import com.shift.shiftfinal.domain.entity.LoanEntity
-
-sealed interface LoanApplicationScreenState {
+sealed interface LoanApplicationScreenState{
 
     data object Loading : LoanApplicationScreenState
 
-    data class Content(val loanList: List<LoanEntity>) : LoanApplicationScreenState
-
-    data class Error(val message: String) : LoanApplicationScreenState
-
+    data class Content(
+        val name: Field<String>,
+        val secondName: Field<String>,
+        val phone: Field<String>
+    ) : LoanApplicationScreenState {
+        val isValid = name.error == null && secondName.error == null && phone.error == null
+    }
 }
