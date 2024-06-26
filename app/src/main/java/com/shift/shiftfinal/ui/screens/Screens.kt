@@ -2,19 +2,19 @@ package com.shift.shiftfinal.ui.screens
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.shift.shiftfinal.domain.entity.LoanConditionEntity
-import com.shift.shiftfinal.ui.BanksStubFragment
-import com.shift.shiftfinal.ui.HelpFragment
-import com.shift.shiftfinal.ui.HomeFragment
-import com.shift.shiftfinal.ui.LoanAcceptedFragment
-import com.shift.shiftfinal.ui.LoanApplicationFragment
-import com.shift.shiftfinal.ui.LoanDeniedFragment
-import com.shift.shiftfinal.ui.LoanDetailsFragment
-import com.shift.shiftfinal.ui.LoginFragment
-import com.shift.shiftfinal.ui.MainFragment
-import com.shift.shiftfinal.ui.MenuFragment
-import com.shift.shiftfinal.ui.MyLoansFragment
-import com.shift.shiftfinal.ui.SpecialOfferFragment
-import com.shift.shiftfinal.ui.SplashFragment
+import com.shift.shiftfinal.ui.fragments.BanksStubFragment
+import com.shift.shiftfinal.ui.fragments.HelpFragment
+import com.shift.shiftfinal.ui.fragments.HomeFragment
+import com.shift.shiftfinal.ui.fragments.LoanAcceptedFragment
+import com.shift.shiftfinal.ui.fragments.LoanApplicationFragment
+import com.shift.shiftfinal.ui.fragments.LoanDeniedFragment
+import com.shift.shiftfinal.ui.fragments.LoanDetailsFragment
+import com.shift.shiftfinal.ui.fragments.LoginFragment
+import com.shift.shiftfinal.ui.fragments.MainFragment
+import com.shift.shiftfinal.ui.fragments.MenuFragment
+import com.shift.shiftfinal.ui.fragments.MyLoansFragment
+import com.shift.shiftfinal.ui.fragments.SpecialOfferFragment
+import com.shift.shiftfinal.ui.fragments.SplashFragment
 import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
 
 fun getSplashScreen() = FragmentScreen { SplashFragment() }

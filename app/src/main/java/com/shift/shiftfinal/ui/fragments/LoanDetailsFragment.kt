@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui
+package com.shift.shiftfinal.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui
+package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,18 +8,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.App
-import com.shift.shiftfinal.databinding.FragmentBanksStubBinding
+import com.shift.shiftfinal.databinding.FragmentLoanDeniedBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
-import com.shift.shiftfinal.presentation.viewmodels.BanksStubViewModel
+import com.shift.shiftfinal.presentation.viewmodels.LoanDeniedViewModel
 import javax.inject.Inject
 
-class BanksStubFragment : Fragment() {
+class LoanDeniedFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: BanksStubViewModel by viewModels { viewModelFactory }
+    private val viewModel: LoanDeniedViewModel by viewModels { viewModelFactory }
 
-    private var _binding: FragmentBanksStubBinding? = null
+    private var _binding: FragmentLoanDeniedBinding? = null
     private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
@@ -32,7 +32,7 @@ class BanksStubFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBanksStubBinding.inflate(inflater, container, false)
+        _binding = FragmentLoanDeniedBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -53,10 +53,7 @@ class BanksStubFragment : Fragment() {
             topAppBar.setNavigationOnClickListener {
                 viewModel.backToMain()
             }
-
-            btnToMain.setOnClickListener {
-                viewModel.backToMain()
-            }
+            btnBackToMain.setOnClickListener { viewModel.backToMain() }
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui
+package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,20 +8,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.App
-import com.shift.shiftfinal.R
-import com.shift.shiftfinal.databinding.FragmentMenuBinding
+import com.shift.shiftfinal.databinding.FragmentBanksStubBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
-import com.shift.shiftfinal.presentation.viewmodels.MenuViewModel
+import com.shift.shiftfinal.presentation.viewmodels.BanksStubViewModel
 import javax.inject.Inject
 
-
-class MenuFragment : Fragment() {
+class BanksStubFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: MenuViewModel by viewModels { viewModelFactory }
+    private val viewModel: BanksStubViewModel by viewModels { viewModelFactory }
 
-    private var _binding: FragmentMenuBinding? = null
+    private var _binding: FragmentBanksStubBinding? = null
     private val binding get() = _binding!!
 
     override fun onAttach(context: Context) {
@@ -34,7 +32,7 @@ class MenuFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMenuBinding.inflate(inflater, container, false)
+        _binding = FragmentBanksStubBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -51,37 +49,13 @@ class MenuFragment : Fragment() {
     }
 
     private fun setListeners() {
-
         with(binding) {
-            topAppBar.setOnMenuItemClickListener { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.info -> {
-                        viewModel.openOnboarding()
-                        true
-                    }
-
-                    else -> false
-                }
+            topAppBar.setNavigationOnClickListener {
+                viewModel.backToMain()
             }
 
-            myLoans.setOnClickListener {
-                viewModel.openMyLoans()
-            }
-
-            offers.setOnClickListener {
-                viewModel.openSpecialOffer()
-            }
-
-            banks.setOnClickListener {
-                viewModel.openBanksStub()
-            }
-
-            help.setOnClickListener {
-                viewModel.openHelp()
-            }
-
-            exit.setOnClickListener {
-
+            btnToMain.setOnClickListener {
+                viewModel.backToMain()
             }
         }
     }

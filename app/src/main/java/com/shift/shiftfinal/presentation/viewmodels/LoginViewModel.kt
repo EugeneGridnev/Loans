@@ -163,8 +163,10 @@ class LoginViewModel @Inject constructor(
                 logoutUserUseCase()
                 _state.value = when (previousState) {
 
-                    is LoginScreenState.LoginContent -> previousState.copy(error = "Неверный пароль или логин")
-                    is LoginScreenState.RegistrationContent -> previousState.copy(error = "Проблемы API")
+                    is LoginScreenState.LoginContent ->
+                        previousState.copy(error = "Неверный пароль или логин")
+                    is LoginScreenState.RegistrationContent ->
+                        previousState.copy(error = "Проблемы API")
                     else -> previousState
                 }
 
@@ -172,7 +174,8 @@ class LoginViewModel @Inject constructor(
                 _state.value = when (previousState) {
 
                     is LoginScreenState.LoginContent -> previousState.copy(error = "Проблемы API")
-                    is LoginScreenState.RegistrationContent -> previousState.copy(error = "Проблемы API")
+                    is LoginScreenState.RegistrationContent ->
+                        previousState.copy(error = "Проблемы API")
                     else -> previousState
                 }
                 return@launch

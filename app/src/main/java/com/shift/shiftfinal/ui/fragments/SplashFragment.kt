@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui
+package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -7,23 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.shift.shiftfinal.App
-import com.shift.shiftfinal.databinding.FragmentLoanDeniedBinding
+import com.shift.shiftfinal.MainActivity
+import com.shift.shiftfinal.databinding.FragmentSplashBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
-import com.shift.shiftfinal.presentation.viewmodels.LoanDeniedViewModel
+import com.shift.shiftfinal.presentation.state.SplashScreenState
+import com.shift.shiftfinal.presentation.viewmodels.SplashViewModel
 import javax.inject.Inject
 
-class LoanDeniedFragment : Fragment() {
+class SplashFragment : Fragment() {
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: LoanDeniedViewModel by viewModels { viewModelFactory }
-
-    private var _binding: FragmentLoanDeniedBinding? = null
-    private val binding get() = _binding!!
+    private val viewModel: SplashViewModel by viewModels { viewModelFactory }
 
     override fun onAttach(context: Context) {
-        (requireActivity().application as App).appComponent.inject(this)
+        (activity as MainActivity).appComponent.inject(this)
         super.onAttach(context)
     }
 
@@ -32,7 +33,7 @@ class LoanDeniedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoanDeniedBinding.inflate(inflater, container, false)
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -40,20 +41,18 @@ class LoanDeniedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setListeners()
+        viewModel.state.observe(viewLifecycleOwner) {
+            when (it) {
+                is SplashScreenState.Error -> {}
+                SplashScreenState.Loading -> {}
+            }
+        }
+
+        viewModel.checkUserLoggedIn()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun setListeners() {
-        with(binding) {
-            topAppBar.setNavigationOnClickListener {
-                viewModel.backToMain()
-            }
-            btnBackToMain.setOnClickListener { viewModel.backToMain() }
-        }
     }
 }

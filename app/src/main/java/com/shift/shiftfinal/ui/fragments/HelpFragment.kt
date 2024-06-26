@@ -1,4 +1,4 @@
-package com.shift.shiftfinal.ui
+package com.shift.shiftfinal.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,23 +8,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.App
-import com.shift.shiftfinal.databinding.FragmentMyLoansBinding
-import com.shift.shiftfinal.domain.entity.LoanEntity
+import com.shift.shiftfinal.databinding.FragmentHelpBinding
 import com.shift.shiftfinal.presentation.ViewModelFactory
-import com.shift.shiftfinal.presentation.viewmodels.MyLoansViewModel
-import com.shift.shiftfinal.ui.adapters.LoansAdapter
+import com.shift.shiftfinal.presentation.viewmodels.HelpViewModel
 import javax.inject.Inject
 
-class MyLoansFragment : Fragment() {
+class HelpFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: MyLoansViewModel by viewModels { viewModelFactory }
+    private val viewModel: HelpViewModel by viewModels { viewModelFactory }
 
-    private var _binding: FragmentMyLoansBinding? = null
+    private var _binding: FragmentHelpBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var loansAdapter: LoansAdapter
 
     override fun onAttach(context: Context) {
         (requireActivity().application as App).appComponent.inject(this)
@@ -36,7 +32,7 @@ class MyLoansFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMyLoansBinding.inflate(inflater, container, false)
+        _binding = FragmentHelpBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -45,22 +41,13 @@ class MyLoansFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.topAppBar.setNavigationOnClickListener {
+            viewModel.backToMenu()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun setUpLoansRecycler() {
-        loansAdapter = LoansAdapter(
-            onItemClickListener = { onLoanClicked(it) }
-        )
-        binding.myLoansRecycler.adapter = loansAdapter
-
-    }
-
-    private fun onLoanClicked(loanEntity: LoanEntity) {
-        //viewModel.openLoanInfo(loanEntity.id)
     }
 }
