@@ -47,19 +47,19 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.converter.scalars)
 
-    implementation("com.google.dagger:dagger:2.51.1")
-    kapt("com.google.dagger:dagger-compiler:2.51.1")
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
     implementation(libs.androidx.swiperefreshlayout)
 
-    implementation("com.github.terrakok:cicerone:7.1")
+    implementation(libs.cicerone)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
-    implementation("androidx.fragment:fragment-ktx:1.8.0")
+    implementation(libs.androidx.fragment.ktx)
 
-    implementation("com.squareup.retrofit2:converter-scalars:2.11.0")
 }
