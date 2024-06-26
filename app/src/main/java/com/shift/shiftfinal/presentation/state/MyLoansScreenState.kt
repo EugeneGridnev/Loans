@@ -6,6 +6,8 @@ sealed interface MyLoansScreenState {
 
     data object Loading : MyLoansScreenState
 
+    data object Initial : MyLoansScreenState
+
     data class Content(val loanList: List<LoanEntity>) : MyLoansScreenState
 
     data class Error(val message: String) : MyLoansScreenState
