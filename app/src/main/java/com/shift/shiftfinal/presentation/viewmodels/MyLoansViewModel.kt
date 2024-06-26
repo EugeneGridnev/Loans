@@ -10,8 +10,6 @@ import com.shift.shiftfinal.domain.usecase.GetMyLoansUseCase
 import com.shift.shiftfinal.domain.usecase.LogoutUserUseCase
 import com.shift.shiftfinal.navigation.ActivityRouter
 import com.shift.shiftfinal.navigation.MainFragmentRouter
-import com.shift.shiftfinal.presentation.state.HomeScreenState
-import com.shift.shiftfinal.presentation.state.LoanDetailsScreenState
 import com.shift.shiftfinal.presentation.state.MyLoansScreenState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,7 +31,7 @@ class MyLoansViewModel @Inject constructor(
                 val myLoans = getMyLoansUseCase()
                 _state.value =
                     MyLoansScreenState.Content(myLoans)
-            }catch (e: AuthException) {
+            } catch (e: AuthException) {
                 logoutUserUseCase()
                 activityRouter.openLoginScreen()
                 return@launch

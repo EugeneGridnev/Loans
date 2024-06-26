@@ -1,6 +1,6 @@
 package com.shift.shiftfinal.presentation.state
 
-sealed interface LoanApplicationScreenState{
+sealed interface LoanApplicationScreenState {
 
     data object Loading : LoanApplicationScreenState
 

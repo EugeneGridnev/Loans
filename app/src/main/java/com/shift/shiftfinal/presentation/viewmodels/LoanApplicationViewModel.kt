@@ -112,6 +112,7 @@ class LoanApplicationViewModel @AssistedInject constructor(
                         openLoanAccepted(loan.amount)
                         return@launch
                     }
+
                     LoanState.REJECTED -> openLoanDenied()
                 }
 

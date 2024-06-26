@@ -96,7 +96,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeState(state: HomeScreenState) {
-        when(state) {
+        when (state) {
             is HomeScreenState.Content -> {
                 with(binding) {
                     content.isVisible = true
@@ -110,7 +110,8 @@ class HomeFragment : Fragment() {
                     loanAmountEdit.setText(state.loanHomeConditionEntity.amount.toString())
                     loanMin.text = state.loanHomeConditionEntity.minAmount.toString()
                     loanMax.text = state.loanHomeConditionEntity.maxAmount.toString()
-                    loanConditions.text = "Под ${state.loanHomeConditionEntity.percent}% на ${state.loanHomeConditionEntity.period} дней"
+                    loanConditions.text =
+                        "Под ${state.loanHomeConditionEntity.percent}% на ${state.loanHomeConditionEntity.period} дней"
                     if (state.loanHomeConditionEntity.errorStatus != "") {
                         errorMessage.text = state.loanHomeConditionEntity.errorStatus
                         errorMessage.isVisible = true
@@ -135,6 +136,7 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
+
             is HomeScreenState.Error -> {
                 with(binding) {
                     content.isVisible = false
@@ -143,9 +145,11 @@ class HomeFragment : Fragment() {
                     refresh.isRefreshing = false
                 }
             }
+
             HomeScreenState.Initial -> {
                 viewModel.loadData()
             }
+
             HomeScreenState.Loading -> {
                 with(binding) {
                     content.isVisible = false

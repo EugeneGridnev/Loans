@@ -23,7 +23,7 @@ class LoanAcceptedFragment : Fragment() {
 
     companion object {
 
-        fun newInstance(loanAmount: Int): Fragment = LoanDetailsFragment().apply {
+        fun newInstance(loanAmount: Int): Fragment = LoanAcceptedFragment().apply {
             arguments = Bundle().apply { this.loanAmount = loanAmount }
         }
     }

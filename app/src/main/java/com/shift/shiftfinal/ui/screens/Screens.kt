@@ -2,7 +2,6 @@ package com.shift.shiftfinal.ui.screens
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.shift.shiftfinal.domain.entity.LoanApplicationEntity
-import com.shift.shiftfinal.domain.entity.LoanConditionEntity
 import com.shift.shiftfinal.ui.fragments.BanksStubFragment
 import com.shift.shiftfinal.ui.fragments.HelpFragment
 import com.shift.shiftfinal.ui.fragments.HomeFragment

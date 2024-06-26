@@ -11,7 +11,7 @@ sealed interface HomeScreenState {
     data class Content(
         val loanHomeConditionEntity: LoanHomeConditionEntity,
         val loanList: List<LoanEntity>,
-        ) : HomeScreenState
+    ) : HomeScreenState
 
     data class Error(val message: String) : HomeScreenState
 

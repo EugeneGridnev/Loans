@@ -12,7 +12,6 @@ import com.shift.shiftfinal.App
 import com.shift.shiftfinal.databinding.FragmentMyLoansBinding
 import com.shift.shiftfinal.domain.entity.LoanEntity
 import com.shift.shiftfinal.presentation.ViewModelFactory
-import com.shift.shiftfinal.presentation.state.HomeScreenState
 import com.shift.shiftfinal.presentation.state.MyLoansScreenState
 import com.shift.shiftfinal.presentation.viewmodels.MyLoansViewModel
 import com.shift.shiftfinal.ui.adapters.LoansAdapter
@@ -56,7 +55,7 @@ class MyLoansFragment : Fragment() {
     }
 
     private fun observeState(state: MyLoansScreenState) {
-        when(state) {
+        when (state) {
             is MyLoansScreenState.Content -> {
                 with(binding) {
                     refresh.isRefreshing = false
@@ -67,6 +66,7 @@ class MyLoansFragment : Fragment() {
                     loansAdapter.loans = state.loanList
                 }
             }
+
             is MyLoansScreenState.Error -> {
                 with(binding) {
                     content.isVisible = false
