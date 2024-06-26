@@ -40,11 +40,23 @@ class BanksStubFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        setListeners()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setListeners() {
+        with(binding) {
+            topAppBar.setNavigationOnClickListener {
+                viewModel.backToMain()
+            }
+
+            btnToMain.setOnClickListener {
+                viewModel.backToMain()
+            }
+        }
     }
 }

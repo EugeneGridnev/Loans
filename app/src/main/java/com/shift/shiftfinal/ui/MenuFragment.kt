@@ -1,18 +1,33 @@
 package com.shift.shiftfinal.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.shift.shiftfinal.App
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentMenuBinding
-import com.shift.shiftfinal.ui.fragments.onboarding.OnBoardingFragment
+import com.shift.shiftfinal.presentation.ViewModelFactory
+import com.shift.shiftfinal.presentation.viewmodels.MenuViewModel
+import javax.inject.Inject
 
 
 class MenuFragment : Fragment() {
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel: MenuViewModel by viewModels { viewModelFactory }
+
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
+
+    override fun onAttach(context: Context) {
+        (requireActivity().application as App).appComponent.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,10 +56,7 @@ class MenuFragment : Fragment() {
             topAppBar.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.info -> {
-                        parentFragment?.parentFragmentManager
-                            ?.beginTransaction()
-                            ?.replace(R.id.fragmentContainer, OnBoardingFragment())
-                            ?.commit()
+                        viewModel.openOnboarding()
                         true
                     }
 
@@ -53,18 +65,24 @@ class MenuFragment : Fragment() {
             }
 
             myLoans.setOnClickListener {
-
+                viewModel.openMyLoans()
             }
 
             offers.setOnClickListener {
-
+                viewModel.openSpecialOffer()
             }
 
-            banks.setOnClickListener { }
+            banks.setOnClickListener {
+                viewModel.openBanksStub()
+            }
 
-            help.setOnClickListener { }
+            help.setOnClickListener {
+                viewModel.openHelp()
+            }
 
-            exit.setOnClickListener { }
+            exit.setOnClickListener {
+
+            }
         }
     }
 }

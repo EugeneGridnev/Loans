@@ -40,7 +40,7 @@ class ActivityRouterImpl @Inject constructor(
     }
 
     override fun openBanksStubScreen() {
-        activityRouter.replaceScreen(getBanksStubScreen())
+        activityRouter.navigateTo(getBanksStubScreen())
     }
 
     override fun openHelpScreen() {
@@ -52,7 +52,7 @@ class ActivityRouterImpl @Inject constructor(
     }
 
     override fun backToMain() {
-        activityRouter.backTo(getMainScreen())
+        activityRouter.exit()
     }
 
 }

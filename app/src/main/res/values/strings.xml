@@ -61,4 +61,5 @@
     <string name="banks_text">Отделения банка</string>
     <string name="help_menu_text">Помощь</string>
     <string name="exit_text">Выйти</string>
+    <string name="load_error_text">Ошибка загрузки данных, попробуйте обновить!</string>
 </resources>

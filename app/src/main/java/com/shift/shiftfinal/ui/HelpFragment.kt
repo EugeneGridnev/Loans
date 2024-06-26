@@ -41,6 +41,9 @@ class HelpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.topAppBar.setNavigationOnClickListener {
+            viewModel.backToMenu()
+        }
     }
 
     override fun onDestroyView() {

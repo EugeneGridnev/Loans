@@ -73,8 +73,7 @@ class LoanApplicationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.topAppBar.setNavigationOnClickListener {
-            parentFragmentManager
-                .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            viewModel.back()
         }
 
     }

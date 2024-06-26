@@ -18,6 +18,8 @@ class LoanAcceptedViewModel @AssistedInject constructor(
         fun create(loanAmount: Int): LoanAcceptedViewModel
     }
 
+    val loanAmountValue = loanAmount
+
     fun openBanksStub() {
         activityRouter.openBanksStubScreen()
     }

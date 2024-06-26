@@ -15,4 +15,6 @@ interface MainFragmentRouter {
     fun openLoanApplicationScreen(loanCondition: LoanConditionEntity)
 
     fun back()
+
+    fun backToHome()
 }

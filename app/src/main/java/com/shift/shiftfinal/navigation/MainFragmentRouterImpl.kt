@@ -22,11 +22,11 @@ class MainFragmentRouterImpl @Inject constructor(
     }
 
     override fun openMyLoansScreen() {
-        mainFragmentRouter.replaceScreen(getMyLoansScreen())
+        mainFragmentRouter.navigateTo(getMyLoansScreen())
     }
 
     override fun openLoanDetailsScreen(loanId: Int) {
-        mainFragmentRouter.replaceScreen(getLoanDetailsScreen(loanId))
+        mainFragmentRouter.navigateTo(getLoanDetailsScreen(loanId))
     }
 
     override fun openLoanApplicationScreen(loanCondition: LoanConditionEntity) {
@@ -35,5 +35,9 @@ class MainFragmentRouterImpl @Inject constructor(
 
     override fun back() {
         mainFragmentRouter.exit()
+    }
+
+    override fun backToHome() {
+        mainFragmentRouter.backTo(getHomeScreen())
     }
 }

@@ -59,11 +59,21 @@ class LoanAcceptedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.acceptTitle.text = "Получите ${viewModel.loanAmountValue}₽ в банке"
+        setListeners()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setListeners() {
+        with(binding) {
+            topAppBar.setNavigationOnClickListener {
+                viewModel.backToMain()
+            }
+            btnToBanks.setOnClickListener { viewModel.openBanksStub() }
+        }
     }
 }
