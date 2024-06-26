@@ -60,4 +60,8 @@
     <string name="help_menu_text">Помощь</string>
     <string name="exit_text">Выйти</string>
     <string name="load_error_text">Ошибка загрузки данных, попробуйте обновить!</string>
+    <string name="passwords_not_the_same">Пароли не совпадают</string>
+    <string name="only_russian_letters">Только русские буквы</string>
+    <string name="wrong_telephon_number">Номера не существует. Проверьте правильность ввода</string>
+    <string name="wrong_login_input_type">Только цифры и латинские буквы</string>
 </resources>

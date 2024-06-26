@@ -6,6 +6,7 @@
     <color name="icon_primary">#151E2A</color>
     <color name="font_secondary">#73787F</color>
     <color name="indicator_attention">#FE9800</color>
+    <color name="indicator_positive">#19B36D</color>
     <color name="permanent_primary">#FED200</color>
     <color name="font_primary">#151E2A</color>
     <color name="font_disable">#A1A5AA</color>

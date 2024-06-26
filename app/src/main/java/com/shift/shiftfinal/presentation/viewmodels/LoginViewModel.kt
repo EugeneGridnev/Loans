@@ -76,7 +76,7 @@ class LoginViewModel @Inject constructor(
 
                 is LoginScreenState.RegistrationContent -> {
                     val errorRes = when {
-                        it.password.value != value -> R.string.app_name
+                        it.password.value != value -> R.string.passwords_not_the_same
                         else -> null
                     }
                     _state.value = it.copy(
@@ -96,7 +96,7 @@ class LoginViewModel @Inject constructor(
             when (it) {
                 is LoginScreenState.RegistrationContent -> {
                     val errorRes = when {
-                        it.password.value != value -> R.string.app_name
+                        it.password.value != value -> R.string.passwords_not_the_same
                         else -> null
                     }
                     _state.value = it.copy(
