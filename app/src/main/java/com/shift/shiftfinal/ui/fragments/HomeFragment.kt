@@ -6,15 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.shift.shiftfinal.App
 import com.shift.shiftfinal.R
 import com.shift.shiftfinal.databinding.FragmentHomeBinding
+import com.shift.shiftfinal.domain.entity.LoanEntity
 import com.shift.shiftfinal.presentation.ViewModelFactory
 import com.shift.shiftfinal.presentation.state.HomeScreenState
 import com.shift.shiftfinal.presentation.viewmodels.HomeViewModel
+import com.shift.shiftfinal.ui.adapters.LoansAdapter
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -25,6 +28,8 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var loansAdapter: LoansAdapter
 
     override fun onAttach(context: Context) {
         (requireActivity().application as App).appComponent.inject(this)
@@ -66,7 +71,7 @@ class HomeFragment : Fragment() {
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    //viewModel.setAmount(progress.toString())
+                    viewModel.setAmount(progress.toString())
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -79,19 +84,25 @@ class HomeFragment : Fragment() {
 
             })
 
+            allLoansButton.setOnClickListener { viewModel.openMyLoans() }
+
+            refresh.setOnRefreshListener { viewModel.loadData() }
+
             loanAmountEdit.doAfterTextChanged { viewModel.setAmount(it.toString()) }
         }
 
-        //viewModel.state.observe(viewLifecycleOwner, ::observeState)
+        setUpLoansRecycler()
+        viewModel.state.observe(viewLifecycleOwner, ::observeState)
     }
 
     private fun observeState(state: HomeScreenState) {
         when(state) {
             is HomeScreenState.Content -> {
                 with(binding) {
-                    content.isEnabled = true
-                    progress.isEnabled = false
-                    error.isEnabled = false
+                    content.isVisible = true
+                    progress.isVisible = false
+                    error.isVisible = false
+                    refresh.isRefreshing = false
 
                     loanSlider.max = state.loanHomeConditionEntity.maxAmount
                     loanSlider.min = state.loanHomeConditionEntity.minAmount
@@ -100,13 +111,36 @@ class HomeFragment : Fragment() {
                     loanMin.text = state.loanHomeConditionEntity.minAmount.toString()
                     loanMax.text = state.loanHomeConditionEntity.maxAmount.toString()
                     loanConditions.text = "Под ${state.loanHomeConditionEntity.percent}% на ${state.loanHomeConditionEntity.period} дней"
+                    if (state.loanHomeConditionEntity.errorStatus != "") {
+                        errorMessage.text = state.loanHomeConditionEntity.errorStatus
+                        errorMessage.isVisible = true
+                        btnLoanApplication.isEnabled = false
+                    } else {
+                        errorMessage.isVisible = false
+                        btnLoanApplication.isEnabled = true
+                    }
+
+                    state.loanList.let {
+
+                        if (it.isEmpty()) {
+                            loanList.isVisible = false
+                            myLoansTextStub.isVisible = true
+                            return@let
+                        }
+
+                        loanList.isVisible = true
+                        myLoansTextStub.isVisible = false
+                        loansAdapter.loans = it.take(3)
+
+                    }
                 }
             }
             is HomeScreenState.Error -> {
                 with(binding) {
-                    content.isEnabled = false
-                    progress.isEnabled = false
-                    error.isEnabled = true
+                    content.isVisible = false
+                    progress.isVisible = false
+                    error.isVisible = true
+                    refresh.isRefreshing = false
                 }
             }
             HomeScreenState.Initial -> {
@@ -114,9 +148,10 @@ class HomeFragment : Fragment() {
             }
             HomeScreenState.Loading -> {
                 with(binding) {
-                    content.isEnabled = false
-                    progress.isEnabled = true
-                    error.isEnabled = false
+                    content.isVisible = false
+                    progress.isVisible = true
+                    error.isVisible = false
+                    refresh.isRefreshing = true
                 }
             }
         }
@@ -125,5 +160,16 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setUpLoansRecycler() {
+        loansAdapter = LoansAdapter(
+            onItemClickListener = { onLoanClicked(it) }
+        )
+        binding.homeLoanRecycler.adapter = loansAdapter
+    }
+
+    private fun onLoanClicked(loanEntity: LoanEntity) {
+        viewModel.openLoanInfo(loanEntity.id)
     }
 }

@@ -70,12 +70,15 @@ class HomeViewModel @Inject constructor(
 
                         else -> ""
                     }
-                    _state.value = it.copy(
+                    val newState = it.copy(
                         loanHomeConditionEntity = it.loanHomeConditionEntity.copy(
-                            amount = value.toInt(),
+                            amount = value.takeIf { it.isNotBlank() }?.toInt() ?: 0,
                             errorStatus = errorRes
                         )
                     )
+                    if (newState != it) {
+                        _state.value = newState
+                    }
                 }
 
                 else -> {}
@@ -90,6 +93,10 @@ class HomeViewModel @Inject constructor(
 
     fun openMyLoans() {
         mainFragmentRouter.openMyLoansScreen()
+    }
+
+    fun openLoanInfo(loanId:Int) {
+        mainFragmentRouter.openLoanDetailsScreen(loanId)
     }
 
     fun openLoanApplication() {

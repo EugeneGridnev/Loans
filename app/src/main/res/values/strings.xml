@@ -64,4 +64,7 @@
     <string name="only_russian_letters">Только русские буквы</string>
     <string name="wrong_telephon_number">Номера не существует. Проверьте правильность ввода</string>
     <string name="wrong_login_input_type">Только цифры и латинские буквы</string>
+    <string name="indicator_approved_text">Одобрен</string>
+    <string name="inicator_registered_text">На рассмотрении</string>
+    <string name="indicator_done_text">Выдан</string>
 </resources>
