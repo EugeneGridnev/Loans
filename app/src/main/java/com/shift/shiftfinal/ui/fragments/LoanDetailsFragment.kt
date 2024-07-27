@@ -66,7 +66,7 @@ class LoanDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.refresh.setOnRefreshListener { viewModel.getLoanDetails(requireArguments().loanId) }
+        binding.refresh.setOnRefreshListener { viewModel.getLoanDetails() }
         binding.topAppBar.setNavigationOnClickListener { viewModel.back() }
         viewModel.state.observe(viewLifecycleOwner, ::observeState)
     }
@@ -136,7 +136,7 @@ class LoanDetailsFragment : Fragment() {
                 }
             }
 
-            LoanDetailsScreenState.Initial -> viewModel.getLoanDetails(requireArguments().loanId)
+            LoanDetailsScreenState.Initial -> viewModel.getLoanDetails()
         }
     }
 

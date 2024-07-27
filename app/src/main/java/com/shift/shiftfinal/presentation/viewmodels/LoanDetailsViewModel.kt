@@ -36,7 +36,7 @@ class LoanDetailsViewModel @AssistedInject constructor(
         mainFragmentRouter.back()
     }
 
-    fun getLoanDetails(loanId: Int) {
+    fun getLoanDetails() {
         viewModelScope.launch {
             _state.value = LoanDetailsScreenState.Loading
             try {
