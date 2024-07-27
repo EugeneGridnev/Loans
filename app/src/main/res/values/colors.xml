@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bg_disable">#E5E5E5</color>
+    <color name="icon_primary">#151E2A</color>
+    <color name="font_secondary">#73787F</color>
+    <color name="indicator_attention">#FE9800</color>
+    <color name="indicator_positive">#19B36D</color>
+    <color name="permanent_primary">#FED200</color>
+    <color name="font_primary">#151E2A</color>
+    <color name="font_disable">#A1A5AA</color>
+    <color name="bg_secondary">#F1F1F2</color>
+    <color name="border_primary">#959698</color>
+    <color name="permanent_primary_dark">#DEB800</color>
+    <color name="border_secondary">#E3E4E5</color>
 </resources>

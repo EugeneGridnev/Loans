@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F2"
+    tools:context=".ui.fragments.LoanDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_error_text"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/permanent_primary"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appBarLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/topAppBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/white"
+                        app:navigationIcon="@drawable/arrow_left" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/loan_background">
+
+                    <TextView
+                        android:id="@+id/loanNameTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_name_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanName"
+                        app:layout_constraintEnd_toStartOf="@+id/loanName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/loanName" />
+
+                    <TextView
+                        android:id="@+id/loanName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanSecondName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanNameTitle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="Иван" />
+
+                    <TextView
+                        android:id="@+id/loanSecondNameTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_second_name_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanSecondName"
+                        app:layout_constraintEnd_toStartOf="@+id/loanSecondName"
+                        app:layout_constraintStart_toStartOf="@+id/loanNameTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanName" />
+
+                    <TextView
+                        android:id="@+id/loanSecondName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanTelephoneNumber"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanSecondNameTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanName"
+                        tools:text="Иванов" />
+
+                    <TextView
+                        android:id="@+id/loanTelephoneNumberTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_telephone_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanTelephoneNumber"
+                        app:layout_constraintEnd_toStartOf="@+id/loanTelephoneNumber"
+                        app:layout_constraintStart_toStartOf="@+id/loanSecondNameTitle"
+                        app:layout_constraintTop_toTopOf="@+id/loanTelephoneNumber" />
+
+                    <TextView
+                        android:id="@+id/loanTelephoneNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanTelephoneNumberTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanSecondName"
+                        tools:text="+7 923 145-88-90" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/loan_background">
+
+                    <TextView
+                        android:id="@+id/loanNumberTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_number_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanNumber"
+                        app:layout_constraintEnd_toStartOf="@+id/loanNumber"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/loanNumber" />
+
+                    <TextView
+                        android:id="@+id/loanNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanDate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanNumberTitle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="№ 176899134565" />
+
+                    <TextView
+                        android:id="@+id/loanDateTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_date_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanPeriod"
+                        app:layout_constraintEnd_toStartOf="@+id/loanDate"
+                        app:layout_constraintStart_toStartOf="@+id/loanNumberTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanNumber" />
+
+                    <TextView
+                        android:id="@+id/loanDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanPeriod"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanDateTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanNumber"
+                        tools:text="25.05.2024" />
+
+                    <TextView
+                        android:id="@+id/loanPeriodTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_period_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanPercent"
+                        app:layout_constraintEnd_toStartOf="@+id/loanPeriod"
+                        app:layout_constraintStart_toStartOf="@+id/loanDateTitle"
+                        app:layout_constraintTop_toTopOf="@+id/loanPeriod" />
+
+                    <TextView
+                        android:id="@+id/loanPeriod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanPercent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanPeriodTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanDate"
+                        tools:text="5" />
+
+                    <TextView
+                        android:id="@+id/loanPercentTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_percent_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanAmount"
+                        app:layout_constraintEnd_toStartOf="@+id/loanPercent"
+                        app:layout_constraintStart_toStartOf="@+id/loanPeriodTitle"
+                        app:layout_constraintTop_toTopOf="@+id/loanPercent" />
+
+                    <TextView
+                        android:id="@+id/loanPercent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/loanAmount"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanPercentTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanPeriod"
+                        tools:text="12 %" />
+
+                    <TextView
+                        android:id="@+id/loanAmountTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_amount"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+
+                        app:layout_constraintBottom_toBottomOf="@+id/loanAmount"
+                        app:layout_constraintEnd_toStartOf="@+id/loanAmount"
+                        app:layout_constraintStart_toStartOf="@+id/loanPercentTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanPercent" />
+
+                    <TextView
+                        android:id="@+id/loanAmount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textColor="#151E2A"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanAmountTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/loanPercent"
+                        tools:text="10 000 ₽" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@drawable/loan_background">
+
+                    <TextView
+                        android:id="@+id/loanStatusTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:lineHeight="16sp"
+                        android:text="@string/loan_status_title"
+                        android:textColor="@color/font_secondary"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/loanStatus"
+                        app:layout_constraintEnd_toStartOf="@+id/loanStatus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/loanStatus" />
+
+                    <TextView
+                        android:id="@+id/loanStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="end"
+                        android:lineHeight="18sp"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/loanStatusTitle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:text="На рассмотрении"
+                        tools:textColor="@color/indicator_attention" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="8dp"
+                    android:lineHeight="16sp"
+                    android:text="@string/loan_details_hint_text"
+                    android:textColor="@color/font_secondary"
+                    android:textFontWeight="400"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

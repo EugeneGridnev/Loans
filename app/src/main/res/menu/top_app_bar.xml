@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/info"
+        android:title="Онбординг"
+        android:icon="@drawable/info"
+        android:contentDescription="Информация по займам через онбординг"
+        app:showAsAction="ifRoom" />
+
+</menu>
